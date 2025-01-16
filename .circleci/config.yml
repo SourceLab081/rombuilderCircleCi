@@ -1,0 +1,22 @@
+version: 2.1
+
+executors:
+  linux_builder:
+    docker:
+      - image: ubuntu-2204:2023.07.1
+    resource_class: arm.large
+
+jobs:
+  build:
+    executor: linux_builder
+    steps:
+      - checkout
+      - run:
+           name: Execute shell
+           command: "bash buildrom.sh"
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+
