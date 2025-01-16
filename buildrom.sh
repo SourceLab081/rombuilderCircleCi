@@ -30,8 +30,11 @@ git clone https://github.com/Notkerd69/device_xiaomi_fog-11 -b lineage-18.1 --de
 git clone https://github.com/Notkerd69/vendor_xiaomi_fog-db -b ineage-18.1 --depth 1 ~/android/vendor/xiaomi/fog
 source build/envsetup.sh
 breakfast fog
+
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
 croot
-brunch fog | tee log.txt
+launch lineage_fog-userdebug
+mka bacon
+#brunch fog | tee log.txt
