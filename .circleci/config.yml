@@ -18,7 +18,6 @@ jobs:
             sudo mkswap /swapfile || echo "mkswap failed"
             sudo swapon /swapfile || echo "swapon failed"
             free -h || echo "free command failed"
-            ./build/soong/soong_ui.bash --make-mode
       - run:
            name: Execute shell
            command: "bash buildrom.sh"
