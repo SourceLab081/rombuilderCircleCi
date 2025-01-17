@@ -8,9 +8,9 @@ if [ -d "$HOME/platform-tools" ] ; then
 fi
 EOF
 cd ~/
-git clone https://github.com/akhilnarang/scripts
-cd scripts
-./setup/android_build_env.sh
+#git clone https://github.com/akhilnarang/scripts
+#cd scripts
+#./setup/android_build_env.sh
 mkdir -p ~/android
 if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
@@ -21,13 +21,20 @@ git config --global color.ui true
 git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 MB
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
-
-cd ~/android
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3
+sudo apt-get clean
+sudo rm -rf /var/lib/apt/lists/*
+sudo apt-get update
+sudo apt-get install -y openjdk-11-jdk git curl gnupg ccache fdisk
+curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
+chmod a+x ~/repo
+sudo cp -a ~/repo /usr/local/bin/repo
+#cd ~/android
 df -h >> info.txt
 cat /proc/cpuinfo >> info.txt
 cat /proc/meminfo >> info.txt
 cat info.txt
-git clone https://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@github.com/SourceLab081/rombuilderCircleCi --depth=1
+git clone --depth=1 https://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@github.com/SourceLab081/rombuilderCircleCi 
 source rombuilderCircleCi/romsrc.sh
 
 source build/envsetup.sh

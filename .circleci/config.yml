@@ -3,13 +3,23 @@ version: 2.1
 executors:
   linux_builder:
     docker:
-      - image: cimg/base:2022.09
+      - image: cimg/android:2022.12.1
 
 jobs:
   build:
     executor: linux_builder
     steps:
       - checkout
+      - run:
+          name: Add Swap Memory
+          command: |
+            sudo fallocate -l 4G /swapfile
+            sudo chmod 600 /swapfile
+            sudo mkswap /swapfile
+            sudo swapon /swapfile
+      - run:
+          name: Verify Swap
+          command: free -h
       - run:
            name: Execute shell
            command: "bash buildrom.sh"
