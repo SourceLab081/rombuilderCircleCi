@@ -23,27 +23,16 @@ git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan min
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 
 cd ~/android
-repo init -u https://github.com/LineageOS/android.git -b lineage-18.1 --git-lfs --depth=1
-mkdir -p .repo/local_manifests
-echo '<manifest>
-            <project name="Notkerd69/device_xiaomi_fog-11" path="device/xiaomi/fog" remote="github" revision="lineage-18.1"/>
-            <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="github" revision="sea-r-oss"/>
-            <project name="Notkerd69/vendor_xiaomi_fog-db" path="vendor/xiaomi/fog" remote="github" revision="lineage-18.1"/>
-            </manifest>' > .repo/local_manifests/roomservice.xml
-git clone --depth=1 -b 11.0 https://github.com/crdroidandroid/android_hardware_xiaomi.git hardware/xiaomi
-#git clone https://github.com/Asyanx/sea_kernel_xiaomi_sm6225 -b sea-r-oss --depth 1 ~/android/device/xiaomi/fog
-#git clone https://github.com/Notkerd69/device_xiaomi_fog-11 -b lineage-18.1 --depth 1 ~/android/kernel/xiaomi/fog
-#git clone https://github.com/Notkerd69/vendor_xiaomi_fog-db -b lineage-18.1 --depth 1 ~/android/vendor/xiaomi/fog
+git clone https://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@github.com/SourceLab081/rombuilderCircleCi --depth 1
+source rombuilderCircleCi/romsrc.sh
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle
 source build/envsetup.sh
-breakfast fog
-
+#breakfast fog
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
 lunch lineage_fog-userdebug
-
 #croot
 #mka bacon -j8
-croot
+#croot
 brunch fog | tee log.txt
