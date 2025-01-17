@@ -41,6 +41,6 @@ export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
 croot
-launch lineage_fog-userdebug
+lunch lineage_fog-userdebug
 mka bacon -j8
 #brunch fog | tee log.txt
