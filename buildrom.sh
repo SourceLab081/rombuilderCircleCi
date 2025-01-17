@@ -23,15 +23,14 @@ git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan min
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 
 cd ~/android
-git clone https://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@github.com/SourceLab081/rombuilderCircleCi --depth 1
+git clone https://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@github.com/SourceLab081/rombuilderCircleCi --depth=1
 source rombuilderCircleCi/romsrc.sh
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle
 source build/envsetup.sh
 #breakfast fog
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-ccache -M 50G
-lunch lineage_fog-userdebug
+#export USE_CCACHE=1
+#export CCACHE_EXEC=/usr/bin/ccache
+#ccache -M 50G
+#lunch lineage_fog-userdebug
 #croot
 #mka bacon -j8
 #croot
