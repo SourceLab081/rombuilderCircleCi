@@ -11,18 +11,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Add Swap Memory
-          command: |
-            sudo fallocate -l 4G /swapfile
-            sudo chmod 600 /swapfile
-            sudo mkswap /swapfile
-            sudo swapon /swapfile
-      - run:
-          name: Verify Swap
-          command: free -h
-      - run:
-           name: Execute shell
-           command: "bash buildrom.sh"
+          name: Execute shell
+          command: "bash buildrom.sh"
 workflows:
   version: 2
   build_and_test:
