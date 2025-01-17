@@ -26,7 +26,8 @@ sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
 sudo apt-get update
 sudo apt install -y openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev
-export NINJA_ARGS="-j4"
+export NINJA_ARGS="-j2"
+export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
@@ -37,8 +38,11 @@ cat /proc/meminfo >> info.txt
 cat info.txt
 git clone --depth=1 https://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@github.com/SourceLab081/rombuilderCircleCi 
 source rombuilderCircleCi/romsrc.sh
-repo sync -j4 --force-sync --no-tags --retry=3
+source rombuilderCircleCi/checkNrun.sh
+repo sync -j2 --force-sync --no-tags --retry=3
+source rombuilderCircleCi/checkNrun.sh
 source build/envsetup.sh
+source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
 cat /proc/meminfo >> info.txt
 cat info.txt
