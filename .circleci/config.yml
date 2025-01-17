@@ -8,7 +8,6 @@ executors:
 jobs:
   build:
     executor: linux_builder
-    timeout: 30m
     steps:
       - checkout
       - run:
@@ -22,6 +21,7 @@ jobs:
       - run:
            name: Execute shell
            command: "bash buildrom.sh"
+           
 workflows:
   version: 2
   build_and_test:
