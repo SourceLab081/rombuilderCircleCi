@@ -14,7 +14,7 @@
 #test crdroid
 repo init -u https://github.com/crdroid-security/android.git -b 11.0 --git-lfs --depth=1
 wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
-source rsync.sh
+source resync.sh
 git clone --depth=1 https://github.com/dblenk-project/kernel_xiaomi_fog_header.git kernel/xiaomi/fog
 git clone --depth=1 https://github.com/develux44/device_xiaomi_fog-11.git device/xiaomi/fog
 git clone --depth=1 https://github.com/develux44/vendor_xiaomi_fog-11.git vendor/xiaomi/fog

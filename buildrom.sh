@@ -23,9 +23,17 @@ git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan min
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 
 cd ~/android
+df -h >> info.txt
+cat /proc/cpuinfo >> info.txt
+cat /proc/meminfo >> info.txt
+cat info.txt
 git clone https://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@github.com/SourceLab081/rombuilderCircleCi --depth=1
 source rombuilderCircleCi/romsrc.sh
+
 source build/envsetup.sh
+df -h >> info.txt 
+cat /proc/meminfo >> info.txt
+cat info.txt
 #breakfast fog
 #export USE_CCACHE=1
 #export CCACHE_EXEC=/usr/bin/ccache
