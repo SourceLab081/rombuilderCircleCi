@@ -36,7 +36,7 @@ cat /proc/meminfo >> info.txt
 cat info.txt
 git clone --depth=1 https://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@github.com/SourceLab081/rombuilderCircleCi 
 source rombuilderCircleCi/romsrc.sh
-
+repo sync -j6 --force-sync --no-tags --retry=3
 source build/envsetup.sh
 df -h >> info.txt 
 cat /proc/meminfo >> info.txt
