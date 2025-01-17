@@ -35,7 +35,7 @@ echo '<manifest>
 #git clone https://github.com/Notkerd69/vendor_xiaomi_fog-db -b lineage-18.1 --depth 1 ~/android/vendor/xiaomi/fog
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle
 source build/envsetup.sh
-breakfast fog
+#breakfast fog
 
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
