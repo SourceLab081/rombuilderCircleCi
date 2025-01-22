@@ -12,10 +12,11 @@
 #git clone https://github.com/Notkerd69/device_xiaomi_fog-11 -b lineage-18.1 --depth 1 ~/android/kernel/xiaomi/fog
 #git clone https://github.com/Notkerd69/vendor_xiaomi_fog-db -b lineage-18.1 --depth 1 ~/android/vendor/xiaomi/fog
 #test crdroid
-repo init -u https://github.com/crdroid-security/android.git -b 11.0 --git-lfs --depth=1
+#repo init -u https://github.com/crdroid-security/android.git -b 11.0 --git-lfs --depth=1
+repo init -u https://github.com/CarbonROM/android.git -b cr-9.0 --git-lfs --depth=1
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
 #source resync.sh
-git clone --depth=1 https://github.com/dblenk-project/kernel_xiaomi_fog_header.git kernel/xiaomi/fog
-git clone --depth=1 https://github.com/develux44/device_xiaomi_fog-11.git device/xiaomi/fog
-git clone --depth=1 https://github.com/develux44/vendor_xiaomi_fog-11.git vendor/xiaomi/fog
+git clone --depth=1 -b kila-r-oss https://github.com/Asyanx/sea_kernel_xiaomi_sm6225.git kernel/xiaomi/fog
+git clone --depth=1 -b cr-9.0 https://github.com/SourceLab081/device_xiaomi_fog-11_2.git device/xiaomi/fog
+git clone --depth=1 -b lineage-18.1 https://github.com/develux44/vendor_xiaomi_fog-11.git vendor/xiaomi/fog
 git clone --depth=1 -b 11.0 https://github.com/crdroidandroid/android_hardware_xiaomi.git hardware/xiaomi
