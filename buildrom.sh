@@ -39,9 +39,9 @@ cat info.txt
 git clone --depth=1 https://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@github.com/SourceLab081/rombuilderCircleCi 
 source rombuilderCircleCi/romsrc.sh
 source rombuilderCircleCi/checkNrun.sh
-#repo sync -j2 --force-sync --no-tags --retry=3
-wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
-source resync.sh
+repo sync -j3 --force-sync --no-tags --retry=3
+#wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
+#source resync.sh
 source rombuilderCircleCi/checkNrun.sh
 #from https://xdaforums.com/t/guide-how-to-build-android-11-with-low-ram.4298483/
 cd build/soong
