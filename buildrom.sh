@@ -39,19 +39,36 @@ cat info.txt
 git clone --depth=1 https://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@github.com/SourceLab081/rombuilderCircleCi 
 source rombuilderCircleCi/romsrc.sh
 source rombuilderCircleCi/checkNrun.sh
-repo sync -j2 --force-sync --no-tags --retry=3
+#repo sync -j2 --force-sync --no-tags --retry=3
+wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
+source resync.sh
 source rombuilderCircleCi/checkNrun.sh
+#from https://xdaforums.com/t/guide-how-to-build-android-11-with-low-ram.4298483/
+cd build/soong
+git fetch https://github.com/masemoel/build_soong_legion-r 11
+
+# Specify heap size for metalava for R
+# Reduce initial heap size for java from 2048mb to 1024mb
+git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
+
+# Tune java compiler flags for low ram systems
+# This is needed on systems with 8GB physical ram.
+# sets the max heap size for java to 3112mb
+git cherry-pick e020f2130224fbdbec1f83e3adfd06a9764cca87
+
+# soong will be rebuilt the next time you build anything in aosp
+cd ../..
 source build/envsetup.sh
 source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
 cat /proc/meminfo >> info.txt
 cat info.txt
 #breakfast fog
-#export USE_CCACHE=1
-#export CCACHE_EXEC=/usr/bin/ccache
-#ccache -M 50G
-#lunch lineage_fog-userdebug
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+ccache -M 50G
+lunch lineage_fog-userdebug
 #croot
-#mka bacon -j8
+mka bacon -j8
 #croot
-brunch fog | tee log.txt
+#brunch fog | tee log.txt
