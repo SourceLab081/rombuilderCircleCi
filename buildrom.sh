@@ -15,7 +15,7 @@ mkdir -p ~/android
 if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
-export JAVA_TOOL_OPTIONS="-Xms4g -Xmx4g"
+export JAVA_TOOL_OPTIONS="-Xms4g -Xmx6g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
 git config --global user.email "root@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -40,7 +40,7 @@ cat info.txt
 git clone --depth=1 https://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@github.com/SourceLab081/rombuilderCircleCi 
 source rombuilderCircleCi/romsrc.sh
 echo "first attempt"
-rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-18.1 packages/resources/devicesettings
+#rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-18.1 packages/resources/devicesettings
 cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
 cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
@@ -72,7 +72,7 @@ source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
 cat /proc/meminfo >> info.txt
 cat info.txt
-breakfast fog
+#breakfast fog
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
