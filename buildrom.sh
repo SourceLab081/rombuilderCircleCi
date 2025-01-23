@@ -58,6 +58,9 @@ git cherry-pick e020f2130224fbdbec1f83e3adfd06a9764cca87
 
 # soong will be rebuilt the next time you build anything in aosp
 cd ../..
+# fix device/xiaomi/spes/parts/Android.bp:7:1: "XiaomiParts" depends on undefined module
+rm -rf packages/resources/devicesettings
+git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 source build/envsetup.sh
 source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
