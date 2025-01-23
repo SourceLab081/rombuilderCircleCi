@@ -41,8 +41,8 @@ git clone --depth=1 https://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@github.com/
 source rombuilderCircleCi/romsrc.sh
 echo "first attempt"
 rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
-cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
-
+cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
+cd /home/circleci
 source rombuilderCircleCi/checkNrun.sh
 repo sync -j3 --force-sync --no-tags --retry=3
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
@@ -51,8 +51,8 @@ source rombuilderCircleCi/checkNrun.sh
 #from https://xdaforums.com/t/guide-how-to-build-android-11-with-low-ram.4298483/
 echo "second attempt"
 rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
-cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
-
+cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
+cd /home/circleci
 # Specify heap size for metalava for R
 # Reduce initial heap size for java from 2048mb to 1024mb
 #git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
@@ -72,12 +72,12 @@ source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
 cat /proc/meminfo >> info.txt
 cat info.txt
-#breakfast fog
+breakfast fog
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
 lunch carbon_fog-userdebug
 #croot
-mka bacon -j3 ALLOW_MISSING_DEPENDENCIES=true
+mka bacon -j2 ALLOW_MISSING_DEPENDENCIES=true
 #croot
 #brunch fog | tee log.txt
