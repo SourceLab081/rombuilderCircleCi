@@ -15,6 +15,7 @@ mkdir -p ~/android
 if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
+export JAVA_TOOL_OPTIONS="-Xms4g -Xmx12g"
 git config --global user.email "root@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -25,7 +26,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3
 sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
 sudo apt-get update
-sudo apt install -y openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev
+sudo apt install -y openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 
 export NINJA_ARGS="-j2"
 export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
@@ -38,29 +39,34 @@ cat /proc/meminfo >> info.txt
 cat info.txt
 git clone --depth=1 https://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@github.com/SourceLab081/rombuilderCircleCi 
 source rombuilderCircleCi/romsrc.sh
+echo "first attempt"
+rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
+
 source rombuilderCircleCi/checkNrun.sh
 repo sync -j3 --force-sync --no-tags --retry=3
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
 #source resync.sh
 source rombuilderCircleCi/checkNrun.sh
 #from https://xdaforums.com/t/guide-how-to-build-android-11-with-low-ram.4298483/
-cd build/soong
-git fetch https://github.com/masemoel/build_soong_legion-r 11
+echo "second attempt"
+rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
 
 # Specify heap size for metalava for R
 # Reduce initial heap size for java from 2048mb to 1024mb
-git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
+#git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
 
 # Tune java compiler flags for low ram systems
 # This is needed on systems with 8GB physical ram.
 # sets the max heap size for java to 3112mb
-git cherry-pick e020f2130224fbdbec1f83e3adfd06a9764cca87
+#git cherry-pick e020f2130224fbdbec1f83e3adfd06a9764cca87
 
 # soong will be rebuilt the next time you build anything in aosp
-cd ../..
+
 # fix device/xiaomi/spes/parts/Android.bp:7:1: "XiaomiParts" depends on undefined module
-rm -rf packages/resources/devicesettings
-git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+#rm -rf packages/resources/devicesettings
+#git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 source build/envsetup.sh
 source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
