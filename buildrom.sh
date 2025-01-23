@@ -72,13 +72,14 @@ source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
 cat /proc/meminfo >> info.txt
 cat info.txt
-#breakfast fog
+breakfast fog
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
-lunch carbon_fog-userdebug
+#lunch carbon_fog-userdebug
+lunch lineage_fog-userdebug
 #croot
-mka bacon -j2 
+mka bacon -j1 
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
 #brunch fog | tee log.txt
