@@ -20,5 +20,19 @@
 #git clone --depth=1 -b cr-9.0 https://github.com/SourceLab081/device_xiaomi_fog-11_2.git device/xiaomi/fog
 #git clone --depth=1 -b lineage-18.1 https://github.com/develux44/vendor_xiaomi_fog-11.git vendor/xiaomi/fog
 #git clone --depth=1 -b 11.0 https://github.com/crdroidandroid/android_hardware_xiaomi.git hardware/xiaomi
-repo init --depth=1 -u https://github.com/accupara/los18.1 -b lineage-18.1 --git-lfs
-git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-18.1 .repo/local_manifests
+repo init --depth=1 -u https://github.com/accupara/los18.1 --git-lfs
+#git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-18.1 .repo/local_manifests
+mkdir -p .repo/local_manifests
+echo '<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+        <remote name="github"
+                fetch="https://github.com" />
+                
+        <!-- Sync trees -->
+             <project name="SourceLab081/device_xiaomi_fog-11_2" path="device/xiaomi/fog" remote="github" revision="lineage-18.1" />
+            <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="github" revision="kila-r-oss" />
+            <project name="develux44/vendor_xiaomi_fog-11" path="vendor/xiaomi/fog" remote="github" revision="lineage-18.1" />
+	    <project name="crdroidandroid/android_hardware_xiaomi" path="hardware/xiaomi" remote="github" revision="11.0" />
+
+</manifest>' > .repo/local_manifests/local_manifest.xml
