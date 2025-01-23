@@ -72,6 +72,6 @@ export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
 lunch carbon_fog-userdebug
 #croot
-mka bacon -j3
+mka bacon -j3 ALLOW_MISSING_DEPENDENCIES=true
 #croot
 #brunch fog | tee log.txt
