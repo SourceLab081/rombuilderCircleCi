@@ -15,7 +15,7 @@ mkdir -p ~/android
 if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
-export JAVA_TOOL_OPTIONS="-Xms4g -Xmx12g"
+export JAVA_TOOL_OPTIONS="-Xms4g -Xmx4g"
 git config --global user.email "root@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -78,6 +78,7 @@ export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
 lunch carbon_fog-userdebug
 #croot
-mka bacon -j1 ALLOW_MISSING_DEPENDENCIES=true
+mka bacon -j1 
+#ALLOW_MISSING_DEPENDENCIES=true
 #croot
 #brunch fog | tee log.txt
