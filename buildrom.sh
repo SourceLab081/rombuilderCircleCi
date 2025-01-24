@@ -15,7 +15,7 @@ mkdir -p ~/android
 if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
-export JAVA_TOOL_OPTIONS="-Xms4g -Xmx6g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
+export JAVA_TOOL_OPTIONS="-Xms1g -Xmx6g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
 git config --global user.email "root@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -41,18 +41,19 @@ git clone --depth=1 https://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@github.com/
 source rombuilderCircleCi/romsrc.sh
 echo "first attempt"
 #rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-18.1 packages/resources/devicesettings
-cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
-cd /home/circleci
+#cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
+#cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
-repo sync -j3 --force-sync --no-tags --retry=3
+repo sync -j3 --force-sync --no-tags --retry=3 |& tee sync_process20252401_0700.txt
+wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up && source go-up sync_process20252401_0700.txt
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
 #source resync.sh
 #source rombuilderCircleCi/checkNrun.sh
 #from https://xdaforums.com/t/guide-how-to-build-android-11-with-low-ram.4298483/
 #echo "second attempt"
 #rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-18.1 packages/resources/devicesettings
-#cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
-#cd /home/circleci
+cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
+cd /home/circleci
 # Specify heap size for metalava for R
 # Reduce initial heap size for java from 2048mb to 1024mb
 #git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
@@ -79,7 +80,8 @@ ccache -M 50G
 #lunch carbon_fog-userdebug
 lunch lineage_fog-userdebug
 #croot
-mka bacon -j1 
+mka bacon -j2 |& tee mka_process20252401_0700.txt
+go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
 #brunch fog | tee log.txt
