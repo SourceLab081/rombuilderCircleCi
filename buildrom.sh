@@ -81,6 +81,15 @@ ccache -M 50G
 lunch carbon_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
+echo "change file for remove the error"
+wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up
+source go-up build/make/core/droiddoc.mk
+source go-up build/soong/java/droiddoc.go
+echo "" > build/make/core/droiddoc.mk
+sed -i '824s/<</}/' build/soong/java/droiddoc.go
+sed -i '1667s/>>/}/' build/soong/java/droiddoc.go
+source go-up build/soong/java/droiddoc.go
+
 mka bacon -j7 |& tee mka_process20252401_0700.txt
 go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
