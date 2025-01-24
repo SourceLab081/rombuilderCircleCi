@@ -26,7 +26,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3
 sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
 sudo apt-get update
-sudo apt install -y openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 
+sudo apt install -y openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 ccache
 export NINJA_ARGS="-j2"
 export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
@@ -46,6 +46,7 @@ echo "first attempt"
 #source rombuilderCircleCi/checkNrun.sh
 repo sync -j3 --force-sync --no-tags --retry=3 |& tee sync_process20252401_0700.txt
 wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up && source go-up sync_process20252401_0700.txt
+source go-up /proc/config.gz
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
 #source resync.sh
 #source rombuilderCircleCi/checkNrun.sh
