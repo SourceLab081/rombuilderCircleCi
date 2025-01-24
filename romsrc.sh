@@ -20,9 +20,9 @@
 #git clone --depth=1 -b cr-9.0 https://github.com/SourceLab081/device_xiaomi_fog-11_2.git device/xiaomi/fog
 #git clone --depth=1 -b lineage-18.1 https://github.com/develux44/vendor_xiaomi_fog-11.git vendor/xiaomi/fog
 #git clone --depth=1 -b 11.0 https://github.com/crdroidandroid/android_hardware_xiaomi.git hardware/xiaomi
-repo init --depth=1 -u https://github.com/accupara/los18.1 -b lineage-18.1 --git-lfs
-repo sync -j3 --force-sync --no-tags --retry=3
-repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-11.0 --git-lfs
+#repo init --depth=1 -u https://github.com/accupara/los18.1 -b lineage-18.1 --git-lfs
+#repo sync -j3 --force-sync --no-tags --retry=3
+repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-9.0 --git-lfs
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-18.1 .repo/local_manifests
 mkdir -p .repo/local_manifests
 echo '<?xml version="1.0" encoding="UTF-8"?>
