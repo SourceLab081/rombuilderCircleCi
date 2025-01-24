@@ -44,7 +44,7 @@ echo "first attempt"
 #cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
 #cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
-repo sync -j3 --force-sync --no-tags --retry=3 |& tee sync_process20252401_0700.txt
+repo sync -j5 --force-sync --no-tags --retry=3 |& tee sync_process20252401_0700.txt
 wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up && source go-up sync_process20252401_0700.txt
 #source go-up /proc/config.gz
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
@@ -81,11 +81,12 @@ ccache -M 50G
 lunch carbon_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
-echo "change file for remove the error"
+#echo "change file for remove the error"
+source go-up build/soong/java/droiddoc.go
 #sed -i '84/4096M/1024M/' build/soong/java/config/config.go
 #sed -i '95/-JXmx4096M/-JXmx1024M/' build/soong/java/config/config.go
 #sed -i '102/-JXmx4096M/-JXmx1024M/' build/soong/java/config/config.go
-#source go-up build/soong/java/config/config.go
+source go-up build/soong/java/config/config.go
 echo "core processor = $(nproc --all)"
 mka bacon -j$(nproc --all) |& tee mka_process20252401_0700.txt
 source go-up mka_process20252401_0700.txt
