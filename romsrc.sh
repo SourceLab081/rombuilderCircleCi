@@ -34,7 +34,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
                 fetch="https://gitlab.com" />	
 
         <!-- Sync trees -->
-        <project name="gentoo3/device_xiaomi_fog-11_2" path="device/xiaomi/fog" remote="fog2" revision="cr-9.0" />
+        <project name="SourceLab081/device_xiaomi_fog-11_2" path="device/xiaomi/fog" remote="fog" revision="cr-9.0" />
         <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="fog" revision="kila-r-oss" />
         <project name="develux44/vendor_xiaomi_fog-11" path="vendor/xiaomi/fog" remote="fog" revision="lineage-18.1" />
 	<project name="crdroidandroid/android_hardware_xiaomi" path="hardware/xiaomi" remote="fog" revision="11.0" />
