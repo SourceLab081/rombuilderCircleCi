@@ -78,10 +78,10 @@ cat info.txt
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
-#lunch carbon_fog-userdebug
-lunch lineage_fog-userdebug
+lunch carbon_fog-userdebug
+#lunch lineage_fog-userdebug
 #croot
-mka bacon -j2 |& tee mka_process20252401_0700.txt
+mka bacon -j7 |& tee mka_process20252401_0700.txt
 go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
