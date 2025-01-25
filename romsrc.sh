@@ -48,6 +48,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
         <project path="vendor/xiaomi/fog" name="vendor_xiaomi_fog" remote="Iverz" revision="lineage-20-new" />
 
         <!-- Sync Hardware Dependencies for Xiaomi Devices -->
-        <project path="hardware/xiaomi" name="LineageOS/android_hardware_xiaomi" remote="github2" revision="lineage-20" />
+       <project path="hardware/xiaomi" name="hardware_xiaomi" remote="Iverz" revision="thirteen-aosp" />
+        <project path="prebuilts/clang/host/linux-x86/clang-r450784d" name="tejas101k/clang-r450784d" remote="gitlab" revision="master" />
 
         </manifest>' > .repo/local_manifests/local_manifest.xml
