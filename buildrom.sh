@@ -82,11 +82,11 @@ lunch carbon_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
-source go-up build/soong/java/droiddoc.go
+#source go-up build/soong/java/droiddoc.go
 #sed -i '84/4096M/1024M/' build/soong/java/config/config.go
 #sed -i '95/-JXmx4096M/-JXmx1024M/' build/soong/java/config/config.go
 #sed -i '102/-JXmx4096M/-JXmx1024M/' build/soong/java/config/config.go
-source go-up build/soong/java/config/config.go
+#source go-up build/soong/java/config/config.go
 echo "core processor = $(nproc --all)"
 mka bacon -j$(nproc --all) |& tee mka_process20252401_0700.txt
 source go-up mka_process20252401_0700.txt
