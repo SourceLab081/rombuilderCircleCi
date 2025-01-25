@@ -38,10 +38,10 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
         <remote name="Iverz"
         fetch="https://github.com/asterixiverz" />
 
-        <!-- lineage libcxx -->
+        <!-- lineage libcxx 
         <remove-project name="platform/external/libcxx" />
-        <project path="external/libcxx" name="LineageOS/android_external_libcxx" remote="github2" revision="lineage-20.0"/>
-
+        <project path="external/libcxx" name="LineageOS/android_external_libcxx" remote="github2" revision="lineage-20.0"/> -->
+ 
         <!-- Sync Trees -->
         <project path="device/xiaomi/fog" name="sourceslab062/device_xiaomi_fog" remote="gitlab" revision="cr-11.0" />
         <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="github2" revision="kila-r-oss" />
