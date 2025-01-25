@@ -52,7 +52,7 @@ wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up && source
 #source rombuilderCircleCi/checkNrun.sh
 #from https://xdaforums.com/t/guide-how-to-build-android-11-with-low-ram.4298483/
 #echo "second attempt"
-rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-18.1 packages/resources/devicesettings
+rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-20.0 packages/resources/devicesettings
 #cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
 #cd /home/circleci
 # Specify heap size for metalava for R
@@ -88,7 +88,7 @@ lunch carbon_fog-userdebug
 #sed -i '102/-JXmx4096M/-JXmx1024M/' build/soong/java/config/config.go
 #source go-up build/soong/java/config/config.go
 echo "core processor = $(nproc --all)"
-mka bacon -j$(nproc --all) |& tee mka_process20252401_0700.txt
+mka bacon -j19 |& tee mka_process20252401_0700.txt
 source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
