@@ -26,17 +26,31 @@ repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-9.0 --git-
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-18.1 .repo/local_manifests
 mkdir -p .repo/local_manifests
 echo '<?xml version="1.0" encoding="UTF-8"?>
+
 <manifest>
 
-        <remote name="fog"
-                fetch="https://github.com" />
-	<remote name="fog2"
-                fetch="https://gitlab.com" />	
+        <remote  name="github2"
+        fetch="https://github.com/" />
 
-        <!-- Sync trees -->
-        <project name="SourceLab081/device_xiaomi_fog-11_2" path="device/xiaomi/fog" remote="fog" revision="cr-9.0" />
-        <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="fog" revision="kila-r-oss" />
-        <project name="develux44/vendor_xiaomi_fog-11" path="vendor/xiaomi/fog" remote="fog" revision="lineage-18.1" />
-	<project name="crdroidandroid/android_hardware_xiaomi" path="hardware/xiaomi" remote="fog" revision="11.0" />
-       
+	<remote  name="gitlab"
+        fetch="https://gitlab.com/" />
+	
+        <remote name="Iverz"
+        fetch="https://github.com/asterixiverz" />
+
+        <!-- lineage libcxx -->
+        <remove-project name="platform/external/libcxx" />
+        <project path="external/libcxx" name="LineageOS/android_external_libcxx" remote="github2" revision="lineage-20.0"/>
+
+        <!-- Sync Trees -->
+        <project path="device/xiaomi/fog" name="sourceslab062/device_xiaomi_fog" remote="gitlab" revision="cr-11.0" />
+        <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="github2" revision="kila-r-oss" />
+        <project path="vendor/xiaomi/fog" name="vendor_xiaomi_fog" remote="Iverz" revision="thirteen" />
+
+        <!-- Sync Hardware Dependencies for Xiaomi Devices -->
+        <project path="hardware/xiaomi" name="LineageOS/android_hardware_xiaomi" remote="github2" revision="lineage-20" />
+
+        <!-- Private keys -->
+        <project path="vendor/derp/signing/keys" name="vendor_sign" remote="Iverz" revision="derp" />
+
 </manifest>' > .repo/local_manifests/local_manifest.xml
