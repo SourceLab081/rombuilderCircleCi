@@ -22,11 +22,18 @@ git config --global color.ui true
 git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 MB
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
+sudo modprobe zram
+echo 20G | sudo tee /sys/block/zram0/disksize
+sudo mkswap /dev/zram0
+sudo swapon /dev/zram0
+swapon --show
+echo "memory :"
+free -h
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3
 sudo apt-get clean
 sudo rm -rf /var/lib/apt/lists/*
 sudo apt-get update
-sudo apt install -y openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 ccache
+sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 ccache
 export NINJA_ARGS="-j2"
 export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo

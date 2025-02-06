@@ -11,14 +11,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Add Swap Memory
-          command: |
-            sudo fallocate -l 4G /swapfile || echo "fallocate failed"
-            sudo chmod 600 /swapfile || echo "chmod failed"
-            sudo mkswap /swapfile || echo "mkswap failed"
-            sudo swapon /swapfile || echo "swapon failed"
-            free -h || echo "free command failed"
-      - run:
            name: Execute shell
            command: "bash buildrom.sh"
            
