@@ -80,7 +80,7 @@ wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up
 #rm -rf packages/resources/devicesettings
 #git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 source build/envsetup.sh
-source rombuilderCircleCi/checkNrun.sh
+###source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
 cat /proc/meminfo >> info.txt
 cat info.txt

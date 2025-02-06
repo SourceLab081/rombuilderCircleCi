@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
            name: Execute bash script
-           command: "buildrom.sh"
+           command: "bash buildrom.sh"
            
 workflows:
   version: 2
