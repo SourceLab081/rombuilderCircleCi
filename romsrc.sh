@@ -30,13 +30,13 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 <manifest>
 
         <remote  name="github2"
-        fetch="https://github.com/" />
+        fetch="https://github.com/" clone-depth="1" />
 
 	<remote  name="gitlab"
-        fetch="https://gitlab.com/" />
+        fetch="https://gitlab.com/" clone-depth="1" />
 	
         <remote name="Iverz"
-        fetch="https://github.com/asterixiverz" />
+        fetch="https://github.com/asterixiverz" clone-depth="1" />
 
         <!-- lineage libcxx 
         <remove-project name="platform/external/libcxx" />

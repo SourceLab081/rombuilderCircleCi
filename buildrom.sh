@@ -15,7 +15,7 @@ mkdir -p ~/android
 if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
-export JAVA_TOOL_OPTIONS="-Xms1g -Xmx6g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
+#export JAVA_TOOL_OPTIONS="-Xms1g -Xmx6g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
 git config --global user.email "root@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -29,13 +29,14 @@ sudo swapon /dev/zram0
 swapon --show
 echo "memory :"
 free -h
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C0BA5CE6DC6315A3
-sudo apt-get clean
-sudo rm -rf /var/lib/apt/lists/*
+export DEBIAN_FRONTEND=noninteractive
+#echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
 sudo apt-get update
+sudo apt-get -y upgrade
 sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 ccache
-export NINJA_ARGS="-j2"
-export MAKEFLAGS += -j2
+sudo needrestart -r a
+#export NINJA_ARGS="-j2"
+#export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
@@ -51,7 +52,7 @@ source rombuilderCircleCi/romsrc.sh
 #cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
 #cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
-repo sync -j6 --force-sync --no-tags --retry=3 
+repo sync -j4 --force-sync --no-tags --retry=3 
 #|& tee sync_process20252401_0700.txt
 wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
 #&& source go-up sync_process20252401_0700.txt
@@ -61,7 +62,7 @@ wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up
 #source rombuilderCircleCi/checkNrun.sh
 #from https://xdaforums.com/t/guide-how-to-build-android-11-with-low-ram.4298483/
 #echo "second attempt"
-rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-20.0 packages/resources/devicesettings
+#rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-20.0 packages/resources/devicesettings
 #cd build/soong && git fetch https://github.com/masemoel/build_soong_legion-r 11;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b;git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b
 #cd /home/circleci
 # Specify heap size for metalava for R
@@ -97,8 +98,12 @@ lunch carbon_fog-userdebug
 #sed -i '102/-JXmx4096M/-JXmx1024M/' build/soong/java/config/config.go
 #source go-up build/soong/java/config/config.go
 echo "core processor = $(nproc --all)"
-mka bacon -j19 |& tee mka_process20252401_0700.txt
-source go-up mka_process20252401_0700.txt
+#mka bacon -j19 |& tee mka_process20252401_0700.txt
+#only chek sepolicy
+#m nothing
+#mmma system/sepolicy 2>&1 | tee build.log
+m system/sepolicy 2>&1 | tee build.log
+#source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
 #brunch fog | tee log.txt
