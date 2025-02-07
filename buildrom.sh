@@ -37,9 +37,9 @@ export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-ccache -M 50G
+#export USE_CCACHE=1
+#export CCACHE_EXEC=/usr/bin/ccache
+#ccache -M 50G
 
 df -h >> info.txt
 cat /proc/cpuinfo >> info.txt
@@ -88,11 +88,11 @@ df -h >> info.txt
 cat /proc/meminfo >> info.txt
 #cat info.txt
 #breakfast fog
-ALLOW_MISSING_DEPENDENCIES=true
+#ALLOW_MISSING_DEPENDENCIES=true
 echo "lunch"
 #lunch carbon_fog-userdebug
-lunch infinity_fog-userdebug
-#lunch aosp_fog-userdebug
+#lunch infinity_fog-userdebug
+lunch aosp_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
@@ -108,7 +108,8 @@ echo "core processor = $(nproc --all)"
 #mmma system/sepolicy 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 echo "build the code"
-mka bacon
+m bacon
+#mka bacon
 #make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
