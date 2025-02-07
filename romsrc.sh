@@ -23,32 +23,6 @@
 #repo init --depth=1 -u https://github.com/accupara/los18.1 -b lineage-18.1 --git-lfs
 #repo sync -j3 --force-sync --no-tags --retry=3
 repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-11.0 --git-lfs
+rm -rf .repo/local_manifests
+git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-18.1 .repo/local_manifests
-mkdir -p .repo/local_manifests
-echo '<?xml version="1.0" encoding="UTF-8"?>
-
-<manifest>
-
-        <remote  name="github2"
-        fetch="https://github.com/" clone-depth="1" />
-
-	<remote  name="gitlab"
-        fetch="https://gitlab.com/" clone-depth="1" />
-	
-        <remote name="Iverz"
-        fetch="https://github.com/asterixiverz" clone-depth="1" />
-
-        <!-- lineage libcxx 
-        <remove-project name="platform/external/libcxx" />
-        <project path="external/libcxx" name="LineageOS/android_external_libcxx" remote="github2" revision="lineage-20.0"/> -->
- 
-        <!-- Sync Trees -->
-        <project path="device/xiaomi/fog" name="sourceslab062/device_xiaomi_fog" remote="gitlab" revision="CarbonROM-11.0" />
-        <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="github2" revision="kila-r-oss" />
-        <project path="vendor/xiaomi/fog" name="vendor_xiaomi_fog" remote="Iverz" revision="thirteen" />
-
-        <!-- Sync Hardware Dependencies for Xiaomi Devices -->
-       <project path="hardware/xiaomi" name="hardware_xiaomi" remote="Iverz" revision="thirteen-aosp" />
-        <project path="prebuilts/clang/host/linux-x86/clang-r450784d" name="tejas101k/clang-r450784d" remote="gitlab" revision="master" />
-
-        </manifest>' > .repo/local_manifests/local_manifest.xml
