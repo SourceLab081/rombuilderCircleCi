@@ -102,7 +102,8 @@ echo "core processor = $(nproc --all)"
 #only chek sepolicy
 #m nothing
 #mmma system/sepolicy 2>&1 | tee build.log
-m system/sepolicy 2>&1 | tee build.log
+#m system/sepolicy 2>&1 | tee build.log
+make carbon -j15
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
