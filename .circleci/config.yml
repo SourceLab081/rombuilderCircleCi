@@ -4,7 +4,7 @@ jobs:
   build:
     machine:
       image: linux-cuda-12:default
-    resource_class: gpu.nvidia.medium.multi
+    resource_class: gpu.nvidia.small.multi
     steps:
       - checkout
       - run:
