@@ -77,8 +77,8 @@ wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up
 # soong will be rebuilt the next time you build anything in aosp
 
 # fix device/xiaomi/spes/parts/Android.bp:7:1: "XiaomiParts" depends on undefined module
-#rm -rf packages/resources/devicesettings
-#git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+rm -rf packages/resources/devicesettings
+git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 source build/envsetup.sh
 ###source rombuilderCircleCi/checkNrun.sh
 df -h >> info.txt 
