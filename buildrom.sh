@@ -52,7 +52,8 @@ source rombuilderCircleCi/romsrc.sh
 #cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
 #cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
-repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
+#repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 #|& tee sync_process20252401_0700.txt
 #wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
 #&& source go-up sync_process20252401_0700.txt
@@ -77,8 +78,8 @@ repo sync -j$(nproc --all) --force-sync --no-tags --retry=3
 # soong will be rebuilt the next time you build anything in aosp
 
 # fix device/xiaomi/spes/parts/Android.bp:7:1: "XiaomiParts" depends on undefined module
-rm -rf packages/resources/devicesettings
-git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+#rm -rf packages/resources/devicesettings
+#git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 echo "envsetup.sh"
 source build/envsetup.sh
 ###source rombuilderCircleCi/checkNrun.sh
@@ -87,7 +88,8 @@ cat /proc/meminfo >> info.txt
 #cat info.txt
 #breakfast fog
 echo "lunch"
-lunch carbon_fog-userdebug
+#lunch carbon_fog-userdebug
+lunch infinity_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
@@ -103,7 +105,8 @@ echo "core processor = $(nproc --all)"
 #mmma system/sepolicy 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 echo "build the code"
-make carbon -j$(nproc --all)
+mka bacon
+#make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
