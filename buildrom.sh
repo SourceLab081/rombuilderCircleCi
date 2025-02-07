@@ -53,7 +53,8 @@ source rombuilderCircleCi/romsrc.sh
 #cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
 #repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+#repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 #|& tee sync_process20252401_0700.txt
 #wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
 #&& source go-up sync_process20252401_0700.txt
@@ -89,7 +90,8 @@ cat /proc/meminfo >> info.txt
 #breakfast fog
 echo "lunch"
 #lunch carbon_fog-userdebug
-lunch infinity_fog-userdebug
+#lunch infinity_fog-userdebug
+lunch aosp_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
@@ -105,7 +107,7 @@ echo "core processor = $(nproc --all)"
 #mmma system/sepolicy 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 echo "build the code"
-mka bacon
+m bacon
 #make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
