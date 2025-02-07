@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     machine:
-      image: linux-cuda-12:default
+      image: linux-cuda-11:edge
     resource_class: gpu.nvidia.small.multi
     steps:
       - checkout
