@@ -45,7 +45,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
         <!-- Sync Trees -->
         <project path="device/xiaomi/fog" name="sourceslab062/device_xiaomi_fog" remote="gitlab" revision="CarbonROM-11.0" />
         <project name="Asyanx/sea_kernel_xiaomi_sm6225" path="kernel/xiaomi/fog" remote="github2" revision="kila-r-oss" />
-        <project path="vendor/xiaomi/fog" name="vendor_xiaomi_fog" remote="Iverz" revision="lineage-20-new" />
+        <project path="vendor/xiaomi/fog" name="vendor_xiaomi_fog" remote="Iverz" revision="thirteen" />
 
         <!-- Sync Hardware Dependencies for Xiaomi Devices -->
        <project path="hardware/xiaomi" name="hardware_xiaomi" remote="Iverz" revision="thirteen-aosp" />
