@@ -19,12 +19,12 @@ git config --global color.ui true
 git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 MB
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
-sudo modprobe zram
-echo 30G | sudo tee /sys/block/zram0/disksize
-sudo mkswap /dev/zram0
-sudo swapon /dev/zram0
-swapon --show
-echo "memory :"
+#sudo modprobe zram
+#echo 30G | sudo tee /sys/block/zram0/disksize
+#sudo mkswap /dev/zram0
+#sudo swapon /dev/zram0
+#swapon --show
+#echo "memory :"
 free -h
 export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
@@ -81,11 +81,13 @@ repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync 
 # fix device/xiaomi/spes/parts/Android.bp:7:1: "XiaomiParts" depends on undefined module
 #rm -rf packages/resources/devicesettings
 #git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
+free -h
+df -h
 echo "envsetup.sh"
 source build/envsetup.sh
 ###source rombuilderCircleCi/checkNrun.sh
-df -h >> info.txt 
-cat /proc/meminfo >> info.txt
+#df -h >> info.txt 
+#cat /proc/meminfo >> info.txt
 #cat info.txt
 #breakfast fog
 #ALLOW_MISSING_DEPENDENCIES=true
