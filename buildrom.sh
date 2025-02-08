@@ -54,8 +54,12 @@ source rombuilderCircleCi/romsrc.sh
 #cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
 #cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
-#repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
-repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
+git clone https://github.com/SourceLab081/uvite.git --depth 1 -b vauxite-fog kernel/xiaomi/fog
+git clone https://gitlab.com/sourceslab062/device_xiaomi_fog.git --depth 1 -b 14-HorizonDroid device/xiaomi/fog
+git clone https://github.com/asterixiverz/vendor_xiaomi_fog.git --depth 1 -b fourteen vendor/xiaomi/fog
+git clone https://github.com/HorizonDroidLab/system_core.git --depth 1 -b refs/heads/udc system/core
+#repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 #repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 #|& tee sync_process20252401_0700.txt
 #wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
