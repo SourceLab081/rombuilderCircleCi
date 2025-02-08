@@ -94,7 +94,6 @@ source build/envsetup.sh
 ###source rombuilderCircleCi/checkNrun.sh
 #df -h >> info.txt 
 #cat /proc/meminfo >> info.txt
-#cat info.txt
 #breakfast fog
 #ALLOW_MISSING_DEPENDENCIES=true
 echo "lunch"
