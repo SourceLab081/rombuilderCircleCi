@@ -27,7 +27,7 @@ git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 #echo "memory :"
 free -h
 df -h
-echo "core processor = $(nproc --all)"
+
 export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
 sudo apt-get update
