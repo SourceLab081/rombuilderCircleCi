@@ -39,9 +39,9 @@ export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
-#export USE_CCACHE=1
-#export CCACHE_EXEC=/usr/bin/ccache
-#ccache -M 50G
+export USE_CCACHE=1
+export CCACHE_EXEC=/usr/bin/ccache
+ccache -M 50G
 
 df -h >> info.txt
 cat /proc/cpuinfo >> info.txt
@@ -98,8 +98,8 @@ source build/envsetup.sh
 #breakfast fog
 #ALLOW_MISSING_DEPENDENCIES=true
 echo "lunch"
-breakfast fog
-#lunch carbon_fog-userdebug
+#breakfast fog
+lunch carbon_fog-userdebug
 #lunch infinity_fog-userdebug
 #lunch aosp_fog-userdebug
 #lunch lineage_fog-userdebug
