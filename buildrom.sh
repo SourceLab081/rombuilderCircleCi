@@ -99,9 +99,9 @@ source build/envsetup.sh
 #ALLOW_MISSING_DEPENDENCIES=true
 echo "lunch"
 #breakfast fog
-lunch carbon_fog-userdebug
+#lunch carbon_fog-userdebug
 #lunch infinity_fog-userdebug
-#lunch aosp_fog-userdebug
+lunch aosp_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
@@ -117,9 +117,9 @@ echo "core processor = $(nproc --all)"
 #mmma system/sepolicy 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
-#m bacon
+m bacon
 #mka bacon
-make carbon -j$(nproc --all)
+#make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
