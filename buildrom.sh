@@ -55,10 +55,10 @@ source rombuilderCircleCi/romsrc.sh
 #cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
 repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
-git clone https://github.com/SourceLab081/uvite.git --depth 1 -b vauxite-fog kernel/xiaomi/fog
-git clone https://gitlab.com/sourceslab062/device_xiaomi_fog.git --depth 1 -b 14-HorizonDroid device/xiaomi/fog
-git clone https://github.com/asterixiverz/vendor_xiaomi_fog.git --depth 1 -b fourteen vendor/xiaomi/fog
-git clone https://github.com/HorizonDroidLab/system_core.git --depth 1 -b refs/heads/udc system/core
+#git clone https://github.com/SourceLab081/uvite.git --depth 1 -b vauxite-fog kernel/xiaomi/fog
+#git clone https://gitlab.com/sourceslab062/device_xiaomi_fog.git --depth 1 -b 14-HorizonDroid device/xiaomi/fog
+#git clone https://github.com/asterixiverz/vendor_xiaomi_fog.git --depth 1 -b fourteen vendor/xiaomi/fog
+#git clone https://github.com/HorizonDroidLab/system_core.git --depth 1 -b refs/heads/udc system/core
 #repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 #repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 #|& tee sync_process20252401_0700.txt
@@ -98,9 +98,10 @@ source build/envsetup.sh
 #breakfast fog
 #ALLOW_MISSING_DEPENDENCIES=true
 echo "lunch"
+breakfast fog
 #lunch carbon_fog-userdebug
 #lunch infinity_fog-userdebug
-lunch aosp_fog-userdebug
+#lunch aosp_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
@@ -115,10 +116,10 @@ echo "core processor = $(nproc --all)"
 #m nothing
 #mmma system/sepolicy 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
-echo "build the code"
-m bacon
+#echo "build the code"
+#m bacon
 #mka bacon
-#make carbon -j$(nproc --all)
+make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #croot
