@@ -121,5 +121,4 @@ m bacon
 #make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
-#croot
 #brunch fog | tee log.txt
