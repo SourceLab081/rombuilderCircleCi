@@ -32,7 +32,7 @@ export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
 sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 ccache
+sudo apt install -y git-lfs bc bison build-essential ccache curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev python3
 sudo needrestart -r a
 export NINJA_ARGS="-j2"
 export MAKEFLAGS += -j2
@@ -61,6 +61,7 @@ git clone https://gitlab.com/sourceslab062/device_xiaomi_fog.git --depth 1 -b 14
 git clone https://github.com/SourceLab081/uvite.git --depth 1 -b vauxite-fog kernel/xiaomi/fog
 git clone https://github.com/asterixiverz/vendor_xiaomi_fog.git --depth 1 -b fourteen vendor/xiaomi/fog
 #git clone https://github.com/HorizonDroidLab/system_core.git --depth 1 -b refs/heads/udc system/core
+rm -f build/soong && git clone https://github.com/DroidX-UI/build_soong.git --depth 1 -b 14 build/soong
 
 #|& tee sync_process20252401_0700.txt
 #wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
@@ -98,10 +99,10 @@ source build/envsetup.sh
 #breakfast fog
 #ALLOW_MISSING_DEPENDENCIES=true
 echo "lunch"
-breakfast fog
+#breakfast fog
 #lunch carbon_fog-userdebug
 #lunch infinity_fog-userdebug
-#lunch aosp_fog-userdebug
+lunch aosp_fog-userdebug
 #lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
