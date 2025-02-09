@@ -61,7 +61,9 @@ rm -rf device/xiaomi/fog && git clone https://gitlab.com/sourceslab062/device_xi
 git clone https://github.com/SourceLab081/uvite.git --depth 1 -b vauxite-fog kernel/xiaomi/fog
 git clone https://github.com/asterixiverz/vendor_xiaomi_fog.git --depth 1 -b fourteen vendor/xiaomi/fog
 #git clone https://github.com/HorizonDroidLab/system_core.git --depth 1 -b refs/heads/udc system/core
-#rm -rf build/soong && git clone https://github.com/DroidX-UI/build_soong.git --depth 1 -b 14 build/soong
+rm -rf build && git clone https://github.com/DroidX-UI/build.git --depth 1 -b 14 build
+git clone https://github.com/DroidX-UI/build_soong.git --depth 1 -b 14 build/soong
+git clone https://github.com/DroidX-UI/build_release.git --depth 1 -b 14 build/release
 
 #|& tee sync_process20252401_0700.txt
 #wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
