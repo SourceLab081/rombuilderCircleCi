@@ -29,5 +29,31 @@
 #repo init --depth=1 --no-repo-verify -u https://github.com/ProjectInfinity-X/manifest -b 15 --git-lfs -g default,-mips,-darwin,-notdefault
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 15-Inifity-X .repo/local_manifests
 repo init --depth=1 -u https://github.com/HorizonDroidLab/manifest.git -b 14 --git-lfs
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 14-HorizonDroidLab .repo/local_manifests
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 14-HorizonDroidLab .repo/local_manifests
+mkdir -p .repo/local_manifests
+echo '<?xml version="1.0" encoding="UTF-8"?>
+
+<manifest>
+
+        <remote name="fog"
+                fetch="https://github.com" clone-depth="1" />
+
+        <remote name="fog2"
+                fetch="https://gitlab.com" clone-depth="1" />
+        
+        <remote  name="HorizonDroidLab_udc"
+           fetch="https://github.com/HorizonDroidLab"
+           revision="refs/heads/udc"  clone-depth="1" />
+                
+        <!-- Sync trees -->
+        <project path="device/xiaomi/taoyao-kernel" name="HorizonDroid-Devices/device_xiaomi_taoyao-kernel"  remote="fog" revision="14" />
+        <project path="device/xiaomi/taoyao" name="HorizonDroid-Devices/device_xiaomi_taoyao" remote="fog" revision="14" />
+        <project path="vendor/xiaomi/taoyao" name="HorizonDroid-Devices/vendor_xiaomi_taoyao" remote="fog" revision="14" />
+
+        <project path="hardware/xiaomi" name="LineageOS/android_hardware_xiaomi" remote="fog" revision="lineage-21" />
+        
+        <remove-project name="system_core" />
+        <project path="system/core" name="system_core" groups="pdk" remote="HorizonDroidLab_udc" />
+
+</manifest>' > .repo/local_manifests/local_manifest.xml
 #mv .repo/local_manifests/local_manifest.xml .repo/local_manifests/pixelstar.xml
