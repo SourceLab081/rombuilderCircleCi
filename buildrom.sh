@@ -57,9 +57,13 @@ source rombuilderCircleCi/romsrc.sh
 #repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
 #repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
-rm -rf device/xiaomi/fog;git clone https://gitlab.com/sourceslab062/device_xiaomi_fog.git --depth 1 -b evox-14 device/xiaomi/fog
-git clone https://github.com/SourceLab081/uvite.git --depth 1 -b vauxite-fog kernel/xiaomi/fog
-git clone https://github.com/asterixiverz/vendor_xiaomi_fog.git --depth 1 -b fourteen vendor/xiaomi/fog
+rm -rf device/xiaomi/fog;git clone https://github.com/HorizonDroid-Devices/device_xiaomi_taoyao  --depth 1 -b evox-14 device/xiaomi/taoyao
+mv vendor/xiaomi/fog vendor/xiaomi/taoyao
+mv kernel/xiaomi/fog kernel/xiaomi/taoyao
+#git clone https://gitlab.com/sourceslab062/device_xiaomi_fog.git --depth 1 -b evox-14 device/xiaomi/fog
+
+#git clone https://github.com/SourceLab081/uvite.git --depth 1 -b vauxite-fog kernel/xiaomi/fog
+#git clone https://github.com/asterixiverz/vendor_xiaomi_fog.git --depth 1 -b fourteen vendor/xiaomi/fog
 #git clone https://github.com/HorizonDroidLab/system_core.git --depth 1 -b refs/heads/udc system/core
 #git clone https://github.com/DroidX-UI/build.git --depth 1 -b 14 build_drdX
 #rm -rf build/tools
