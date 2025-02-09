@@ -111,7 +111,8 @@ echo "lunch"
 #lunch carbon_fog-userdebug
 #lunch infinity_fog-userdebug
 #lunch aosp_fog-userdebug
-lunch lineage_fog-userdebug
+lunch aosp_taoyao-eng
+#lunch lineage_fog-userdebug
 #croot
 #echo "change file for remove the error"
 #source go-up build/soong/java/droiddoc.go
