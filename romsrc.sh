@@ -28,7 +28,7 @@ git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-18.1 .repo/local_manifests
 #repo init --depth=1 --no-repo-verify -u https://github.com/ProjectInfinity-X/manifest -b 15 --git-lfs -g default,-mips,-darwin,-notdefault
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 15-Inifity-X .repo/local_manifests
-repo init --depth=1 -u https://github.com/HorizonDroidLab/manifest.git -b udc --git-lfs
+#repo init --depth=1 -u https://github.com/HorizonDroidLab/manifest.git -b udc --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 14-HorizonDroidLab .repo/local_manifests
 #mkdir -p .repo/local_manifests
 #echo '<?xml version="1.0" encoding="UTF-8"?>
