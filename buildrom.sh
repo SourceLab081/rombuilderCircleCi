@@ -20,9 +20,9 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 #sudo modprobe zram
-#echo 30G | sudo tee /sys/block/zram0/disksize
-#sudo mkswap /dev/zram0
-#sudo swapon /dev/zram0
+echo 4G | sudo tee /sys/block/zram0/disksize
+sudo mkswap /dev/zram0
+sudo swapon /dev/zram0
 #swapon --show
 #echo "memory :"
 free -h
@@ -99,14 +99,14 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimiz
 #git clone https://github.com/LineageOS/android_packages_resources_devicesettings packages/resources/devicesettings
 free -h
 df -h
-pwd
-mkdir bckp_ && cd bckp_
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/Android.mk && mv Android.mk ../external/libncurses/Android.mk
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/ncurses_cfg.h && mv Android.mk ../external/libncurses/include/ncurses_cfg.h
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/Android_h.mk && mv Android_h.mk ../external/htop/Android.mk
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/Android_n.mk && mv Android_n.mk ../external/nano/Android.mk
-cd ..
-pwd
+#pwd
+#mkdir bckp_ && cd bckp_
+#wget https://github.com/SourceLab081/files/raw/refs/heads/main/Android.mk && mv Android.mk ../external/libncurses/Android.mk
+#wget https://github.com/SourceLab081/files/raw/refs/heads/main/ncurses_cfg.h && mv Android.mk ../external/libncurses/include/ncurses_cfg.h
+#wget https://github.com/SourceLab081/files/raw/refs/heads/main/Android_h.mk && mv Android_h.mk ../external/htop/Android.mk
+#wget https://github.com/SourceLab081/files/raw/refs/heads/main/Android_n.mk && mv Android_n.mk ../external/nano/Android.mk
+#cd ..
+#pwd
 echo "envsetup.sh"
 source build/envsetup.sh
 ###source rombuilderCircleCi/checkNrun.sh
@@ -114,11 +114,13 @@ source build/envsetup.sh
 #cat /proc/meminfo >> info.txt
 #breakfast fog
 #ALLOW_MISSING_DEPENDENCIES=true
+# Export
+#export SELINUX_IGNORE_NEVERALLOWS=true
 echo "lunch"
 #breakfast fog
-lunch carbon_fog-userdebug
+#lunch carbon_fog-userdebug
 #lunch infinity_fog-userdebug
-#lunch aosp_fog-userdebug
+lunch aosp_fog-userdebug
 #lunch aosp_taoyao-eng
 #lunch lineage_fog-userdebug
 #croot
@@ -135,9 +137,9 @@ echo "core processor = $(nproc --all)"
 #mmma system/sepolicy 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
-#m bacon
+m bacon
 #mka bacon
-make carbon -j$(nproc --all)
+#make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
 #ALLOW_MISSING_DEPENDENCIES=true
 #brunch fog | tee log.txt
