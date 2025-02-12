@@ -95,7 +95,10 @@ build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
 #m nothing
 echo "After repo sync & before build the code"
 df -h
-mmma system/sepolicy -j3 2>&1 | tee build.log
+set +e
+mmma system/sepolicy -j4 
+set -e
+2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #. build/envsetup.sh
 #lunch komodo_ulysse-userdebug
