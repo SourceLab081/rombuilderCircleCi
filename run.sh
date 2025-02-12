@@ -18,7 +18,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 sudo modprobe zram
-echo 10G | sudo tee /sys/block/zram0/disksize
+echo 16G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 swapon --show
