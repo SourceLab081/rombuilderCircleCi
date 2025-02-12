@@ -20,7 +20,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 #sudo modprobe zram
-echo 10G | sudo tee /sys/block/zram0/disksize
+echo 20G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 #swapon --show
@@ -33,7 +33,7 @@ export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt install -y git-lfs bc bison build-essential ccache curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush schedtool squashfs-tools xsltproc zip zlib1g-dev python3
-sudo needrestart -r a
+#sudo needrestart -r a
 export NINJA_ARGS="-j2"
 export MAKEFLAGS += -j2
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
@@ -134,7 +134,7 @@ echo "core processor = $(nproc --all)"
 #mka bacon -j19 |& tee mka_process20252401_0700.txt
 #only chek sepolicy
 #m nothing
-mmma system/sepolicy -j2 2>&1 | tee build.log
+mmma system/sepolicy -j4 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
 #m bacon
