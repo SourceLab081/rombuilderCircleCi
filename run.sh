@@ -18,7 +18,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 sudo modprobe zram
-echo 20G | sudo tee /sys/block/zram0/disksize
+echo 5G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 swapon --show
@@ -26,7 +26,7 @@ echo "memory :"
 free -h
 free -h >> info_server.txt
 uname -a >> info_server.txt
-
+df -h
 export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
 sudo apt-get update
@@ -47,6 +47,7 @@ sudo cp -a ~/repo /usr/local/bin/repo
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
+mkdir -p .cache/ccache/tmp
 #wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
@@ -96,6 +97,8 @@ lunch carbon_fog-userdebug
 #sed -i '68s/2048M/1024M/' build/soong/java/config/config.go
 build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
 #m nothing
+echo "After repo sync & before build the code"
+df -h
 mmma system/sepolicy -j3 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #. build/envsetup.sh
