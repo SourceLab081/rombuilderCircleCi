@@ -47,15 +47,7 @@ sudo cp -a ~/repo /usr/local/bin/repo
 export USE_CCACHE=1
 export CCACHE_EXEC=/usr/bin/ccache
 ccache -M 50G
-. build/envsetup.sh
-lunch carbon_fog-userdebug
-#echo "" > build/soong/java/Android.bp
-#sed -i '68s/2048M/1024M/' build/soong/java/config/config.go
-build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
-#m nothing
-mmma system/sepolicy -j3 2>&1 | tee build.log
-#m system/sepolicy 2>&1 | tee build.log
-wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
+#wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
 cat /proc/cpuinfo >> info_server.txt
@@ -98,8 +90,14 @@ repo sync -j4 --force-sync --no-tags --retry=3
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
-#source resync.sh
-#breakfast fog
+. build/envsetup.sh
+lunch carbon_fog-userdebug
+#echo "" > build/soong/java/Android.bp
+#sed -i '68s/2048M/1024M/' build/soong/java/config/config.go
+build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
+#m nothing
+mmma system/sepolicy -j3 2>&1 | tee build.log
+#m system/sepolicy 2>&1 | tee build.log
 #. build/envsetup.sh
 #lunch komodo_ulysse-userdebug
 #lunch carbon_fog-userdebug
