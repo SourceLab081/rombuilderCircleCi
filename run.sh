@@ -49,9 +49,6 @@ sudo cp -a ~/repo /usr/local/bin/repo
 #export CCACHE_EXEC=/usr/bin/ccache
 #ccache -M 50G
 #mkdir -p .cache/ccache/tmp
-#wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
-#&& source go-up sync_process20252401_0700.txt
-#source go-up build.log
 cat /proc/cpuinfo >> info_server.txt
 cat /proc/meminfo >> info_server.txt
 df -h >> info_server.txt
