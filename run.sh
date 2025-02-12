@@ -41,7 +41,6 @@ chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
 #repo init -u https://github.com/CarbonROM/android.git --depth 1 -b cr-9.0 --git-lfs
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-9.0 .repo/local_manifests
-#git clone https://gitlab.com/tejas101k/clang-r450784d -b master prebuilts/clang/host/linux-x86/clang-r450784d
 #repo sync -j$(nproc) --force-sync --no-tags
 #rm device/qcom/sepolicy/generic/public/attribute/attributes && wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/attributes && mv attributes device/qcom/sepolicy/generic/public/attribute/
 #rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-18.1 packages/resources/devicesettings
