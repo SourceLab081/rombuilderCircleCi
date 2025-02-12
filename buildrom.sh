@@ -20,7 +20,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 #sudo modprobe zram
-echo 4G | sudo tee /sys/block/zram0/disksize
+echo 10G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 #swapon --show
@@ -133,8 +133,8 @@ lunch carbon_fog-userdebug
 echo "core processor = $(nproc --all)"
 #mka bacon -j19 |& tee mka_process20252401_0700.txt
 #only chek sepolicy
-m nothing
-mmma system/sepolicy 2>&1 | tee build.log
+#m nothing
+mmma system/sepolicy -j2 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
 #m bacon
