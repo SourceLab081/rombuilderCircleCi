@@ -18,7 +18,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 sudo modprobe zram
-echo 16G | sudo tee /sys/block/zram0/disksize
+echo 15G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 swapon --show
@@ -31,7 +31,8 @@ export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
 sudo apt-get update
 sudo apt-get -y upgrade
-sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3 ccache
+sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
+# ccache
 sudo needrestart -r a
 export NINJA_ARGS="-j3"
 export MAKEFLAGS += "-j2"
@@ -44,10 +45,10 @@ sudo cp -a ~/repo /usr/local/bin/repo
 #repo sync -j$(nproc) --force-sync --no-tags
 #rm device/qcom/sepolicy/generic/public/attribute/attributes && wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/attributes && mv attributes device/qcom/sepolicy/generic/public/attribute/
 #rm -rf packages/resources/devicesettings && git clone https://github.com/LineageOS/android_packages_resources_devicesettings -b lineage-18.1 packages/resources/devicesettings
-export USE_CCACHE=1
-export CCACHE_EXEC=/usr/bin/ccache
-ccache -M 50G
-mkdir -p .cache/ccache/tmp
+#export USE_CCACHE=1
+#export CCACHE_EXEC=/usr/bin/ccache
+#ccache -M 50G
+#mkdir -p .cache/ccache/tmp
 #wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
