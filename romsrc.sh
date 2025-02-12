@@ -21,16 +21,16 @@
 #git clone --depth=1 -b lineage-18.1 https://github.com/develux44/vendor_xiaomi_fog-11.git vendor/xiaomi/fog
 #git clone --depth=1 -b 11.0 https://github.com/crdroidandroid/android_hardware_xiaomi.git hardware/xiaomi
 #repo init --depth=1 -u https://github.com/accupara/los20 --git-lfs
-repo init --depth=1 -u https://github.com/LineageOS/android -b lineage-21.0 --git-lfs
-repo sync -j3 --force-sync --no-tags --retry=3
-#repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-11.0 --git-lfs
-#rm -rf .repo/local_manifests
-#git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
+#repo init --depth=1 -u https://github.com/LineageOS/android -b lineage-21.0 --git-lfs
+#repo sync -j3 --force-sync --no-tags --retry=3
+repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-11.0 --git-lfs
+rm -rf .repo/local_manifests
+git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-18.1 .repo/local_manifests
 #repo init --depth=1 --no-repo-verify -u https://github.com/ProjectInfinity-X/manifest -b 15 --git-lfs -g default,-mips,-darwin,-notdefault
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 15-Inifity-X .repo/local_manifests
-repo init --depth=1 -u https://github.com/HorizonDroidLab/manifest.git -b 14 --git-lfs
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 14-HorizonDroidLab .repo/local_manifests
+#repo init --depth=1 -u https://github.com/HorizonDroidLab/manifest.git -b 14 --git-lfs
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 14-HorizonDroidLab .repo/local_manifests
 #mkdir -p .repo/local_manifests
 #echo '<?xml version="1.0" encoding="UTF-8"?>
 
