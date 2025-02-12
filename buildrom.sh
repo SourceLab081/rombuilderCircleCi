@@ -109,7 +109,7 @@ df -h
 #pwd
 echo "envsetup.sh"
 source build/envsetup.sh
-###source rombuilderCircleCi/checkNrun.sh
+source rombuilderCircleCi/checkNrun.sh
 #df -h >> info.txt 
 #cat /proc/meminfo >> info.txt
 #breakfast fog
