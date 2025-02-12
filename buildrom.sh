@@ -12,7 +12,7 @@ EOF
 if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
-#export JAVA_TOOL_OPTIONS="-Xms1g -Xmx6g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
+export JAVA_TOOL_OPTIONS="-Xms1g -Xmx6g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
 git config --global user.email "root@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -54,9 +54,9 @@ source rombuilderCircleCi/romsrc.sh
 #cd build/soong/ && git fetch https://github.com/masemoel/build_soong_legion-r 11 &&  git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && git cherry-pick b45c5ae22f74f1bdbb9bfbdd06ecf7a25033c78b && cd ../..
 #cd /home/circleci
 #source rombuilderCircleCi/checkNrun.sh
-#repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
+repo sync -j$(nproc --all) --force-sync --no-tags --retry=3 
 #repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
-repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
+#repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune
 #rm -rf device/xiaomi/fog;git clone https://github.com/HorizonDroid-Devices/device_xiaomi_taoyao  --depth 1 -b evox-14 device/xiaomi/taoyao
 #mv vendor/xiaomi/fog vendor/xiaomi/taoyao
 #mv kernel/xiaomi/fog kernel/xiaomi/taoyao
@@ -118,9 +118,9 @@ source build/envsetup.sh
 #export SELINUX_IGNORE_NEVERALLOWS=true
 echo "lunch"
 #breakfast fog
-#lunch carbon_fog-userdebug
+lunch carbon_fog-userdebug
 #lunch infinity_fog-userdebug
-lunch aosp_fog-userdebug
+#lunch aosp_fog-userdebug
 #lunch aosp_taoyao-eng
 #lunch lineage_fog-userdebug
 #croot
@@ -133,11 +133,11 @@ lunch aosp_fog-userdebug
 echo "core processor = $(nproc --all)"
 #mka bacon -j19 |& tee mka_process20252401_0700.txt
 #only chek sepolicy
-#m nothing
-#mmma system/sepolicy 2>&1 | tee build.log
+m nothing
+mmma system/sepolicy 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
-m bacon
+#m bacon
 #mka bacon
 #make carbon -j$(nproc --all)
 #source go-up mka_process20252401_0700.txt
