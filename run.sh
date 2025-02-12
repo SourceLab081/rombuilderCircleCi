@@ -96,7 +96,7 @@ build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
 echo "After repo sync & before build the code"
 df -h
 #set +e
-mmma -k system/sepolicy -j4 
+mmma system/sepolicy -j4 || true
 #set -e
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
