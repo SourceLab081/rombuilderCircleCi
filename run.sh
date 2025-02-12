@@ -54,7 +54,6 @@ df -h >> info_server.txt
 echo "core processor = $(nproc --all)" >> info_server.txt
 #source go-up info_server.txt;
 #make carbon -j$(nproc) |& tee mka_process.txt
-#source go-up mka_process.txt
 #for filename in out/target/product/fog/*.zip;do source go-up $filename;done
 #repo init -u https://github.com/Komodo-OS/manifest --depth 1 -b 12.1  --git-lfs
 repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-11.0 --git-lfs
