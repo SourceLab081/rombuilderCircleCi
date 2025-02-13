@@ -34,8 +34,8 @@ sudo apt-get -y upgrade
 sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
 # ccache
 sudo needrestart -r a
-export NINJA_ARGS="-j3"
-export MAKEFLAGS += "-j2"
+#export NINJA_ARGS="-j3"
+#export MAKEFLAGS += "-j2"
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
@@ -76,7 +76,6 @@ rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_
 repo sync -j4 --force-sync --no-tags --retry=3
 #repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b r11x
 ##must be updated with clone list manifest.xml
-
 #repo sync --force-sync -j$(nproc --all)
 #repo sync -j6 --force-sync --no-tags --retry=3 
 #export JACK_SERVER_VM_ARGUMENTS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx8g"
@@ -87,6 +86,11 @@ repo sync -j4 --force-sync --no-tags --retry=3
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
+mkdir bckp_;cd bckp_
+wget https://github.com/SourceLab081/files/raw/refs/heads/main/30.0.ignore.cil && mv 30.0.ignore.cil ../system/sepolicy/private/compat/30.0/30.0.ignore.cil
+wget https://github.com/SourceLab081/files/raw/refs/heads/main/31.0.ignore.cil && mv 31.0.ignore.cil ../system/sepolicy/private/compat/31.0/31.0.ignore.cil
+wget https://github.com/SourceLab081/files/raw/refs/heads/main/32.0.ignore.cil && mv 32.0.ignore.cil ../system/sepolicy/private/compat/32.0/32.0.ignore.cil
+cd ..
 . build/envsetup.sh
 lunch carbon_fog-userdebug
 #echo "" > build/soong/java/Android.bp
