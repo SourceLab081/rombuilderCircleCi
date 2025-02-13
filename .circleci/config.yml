@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
            name: Execute bash script
-           command: "source run.sh"
+           command: "bash run.sh"
            
 workflows:
   version: 2
