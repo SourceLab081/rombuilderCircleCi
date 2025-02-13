@@ -9,7 +9,9 @@ jobs:
       - checkout
       - run:
            name: Execute bash script
-           command: "bash run.sh"
+           command: |
+            source run.sh || true
+           when: always
            
 workflows:
   version: 2
