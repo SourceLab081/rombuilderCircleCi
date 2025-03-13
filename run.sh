@@ -73,7 +73,7 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 
 #</manifest>' > .repo/local_manifests/local_manifest.xml
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
-repo init --depth 1 -u https://github.com/GenesisOS/manifest.git -b verve --git-lfs
+repo init --depth 1 -u https://github.com/GenesisOS-Staging/manifest.git -b verve --git-lfs
 rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-GenesisOS .repo/local_manifests
 repo sync -j4 --force-sync --no-tags --retry=3
 #repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b r11x
