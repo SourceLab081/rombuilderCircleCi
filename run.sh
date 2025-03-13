@@ -96,9 +96,10 @@ repo sync -j4 --force-sync --no-tags --retry=3
 #cp system/sepolicy/private/compat/30.0/30.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/30.0/30.0.ignore.cil
 #cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
 #cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
-. build/envsetup.sh
+source build/envsetup.sh
 #lunch carbon_fog-userdebug
-lunch genesis_fog-userdebug
+#lunch genesis_fog-userdebug
+lunch genesis_fog-ap4a-userdebug
 #echo "" > build/soong/java/Android.bp
 #sed -i '68s/2048M/1024M/' build/soong/java/config/config.go
 #build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
