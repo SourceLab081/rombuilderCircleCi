@@ -75,8 +75,8 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
 #repo init --depth 1 -u https://github.com/GenesisOS-Staging/manifest.git -b verve --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-GenesisOS .repo/local_manifests
-repo init --depth 1 -u https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --git-lfs 
-#repo init -u https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --git-lfs
+#repo init --depth 1 -u https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --git-lfs 
+repo init -u https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --git-lfs
 rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-LMODroid .repo/local_manifests
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
