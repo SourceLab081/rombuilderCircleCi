@@ -106,6 +106,7 @@ cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/downloa
 cd ../..
 
 source build/envsetup.sh
+breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
 #lunch genesis_fog-ap4a-userdebug
@@ -115,10 +116,10 @@ source build/envsetup.sh
 #m nothing
 echo "After repo sync & before build the code"
 df -h
-brunch fog
+#brunch fog
 #mka genesis
 #set -x
-#mmma system/sepolicy -j2 || true
+mmma system/sepolicy -j2 || true
 #set +x
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
