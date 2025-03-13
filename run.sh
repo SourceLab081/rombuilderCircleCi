@@ -18,7 +18,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 sudo modprobe zram
-echo 15G | sudo tee /sys/block/zram0/disksize
+echo 18G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 swapon --show
@@ -56,8 +56,8 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #make carbon -j$(nproc) |& tee mka_process.txt
 #for filename in out/target/product/fog/*.zip;do source go-up $filename;done
 #repo init -u https://github.com/Komodo-OS/manifest --depth 1 -b 12.1  --git-lfs
-repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-11.0 --git-lfs
-mkdir -p .repo/local_manifests
+#repo init --depth=1 -u https://github.com/CarbonROM/android.git -b cr-11.0 --git-lfs
+#mkdir -p .repo/local_manifests
 #echo '<?xml version="1.0" encoding="UTF-8"?>
 
 #<manifest>
@@ -72,7 +72,9 @@ mkdir -p .repo/local_manifests
 #        <project path="vendor/xiaomi/msm8937-common" name="riceDroid-Devices/android_vendor_xiaomi_msm8937-common" remote="github2" revision="12.1" />
 
 #</manifest>' > .repo/local_manifests/local_manifest.xml
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
+repo init --depth 1 -u https://github.com/GenesisOS/manifest.git -b verve --git-lfs
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-GenesisOS .repo/local_manifests
 repo sync -j4 --force-sync --no-tags --retry=3
 #repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b r11x
 ##must be updated with clone list manifest.xml
@@ -86,24 +88,26 @@ repo sync -j4 --force-sync --no-tags --retry=3
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
-mkdir bckp_;cd bckp_
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/30.0.ignore.cil && mv 30.0.ignore.cil ../system/sepolicy/private/compat/30.0/30.0.ignore.cil
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/31.0.ignore.cil && mv 31.0.ignore.cil ../system/sepolicy/private/compat/31.0/31.0.ignore.cil
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/32.0.ignore.cil && mv 32.0.ignore.cil ../system/sepolicy/private/compat/32.0/32.0.ignore.cil
-cd ..
-cp system/sepolicy/private/compat/30.0/30.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/30.0/30.0.ignore.cil
-cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
-cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
+#mkdir bckp_;cd bckp_
+#wget https://github.com/SourceLab081/files/raw/refs/heads/main/30.0.ignore.cil && mv 30.0.ignore.cil ../system/sepolicy/private/compat/30.0/30.0.ignore.cil
+#wget https://github.com/SourceLab081/files/raw/refs/heads/main/31.0.ignore.cil && mv 31.0.ignore.cil ../system/sepolicy/private/compat/31.0/31.0.ignore.cil
+#wget https://github.com/SourceLab081/files/raw/refs/heads/main/32.0.ignore.cil && mv 32.0.ignore.cil ../system/sepolicy/private/compat/32.0/32.0.ignore.cil
+#cd ..
+#cp system/sepolicy/private/compat/30.0/30.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/30.0/30.0.ignore.cil
+#cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
+#cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
 . build/envsetup.sh
-lunch carbon_fog-userdebug
+#lunch carbon_fog-userdebug
+lunch genesis_fog-userdebug
 #echo "" > build/soong/java/Android.bp
 #sed -i '68s/2048M/1024M/' build/soong/java/config/config.go
-build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
+#build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
 #m nothing
 echo "After repo sync & before build the code"
 df -h
+mka genesis
 #set -x
-mmma system/sepolicy -j4 || true
+#mmma system/sepolicy -j2 || true
 #set +x
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
