@@ -73,9 +73,13 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 
 #</manifest>' > .repo/local_manifests/local_manifest.xml
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
-repo init --depth 1 -u https://github.com/GenesisOS-Staging/manifest.git -b verve --git-lfs
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-GenesisOS .repo/local_manifests
-repo sync -j4 --force-sync --no-tags --retry=3
+#repo init --depth 1 -u https://github.com/GenesisOS-Staging/manifest.git -b verve --git-lfs
+#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-GenesisOS .repo/local_manifests
+repo init --depth 1 -u https://git.libremobileos.com/LMODroid/manifest.git -b fifteen --git-lfs 
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-LMODroid .repo/local_manifests
+
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags --retry=3
+
 #repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b r11x
 ##must be updated with clone list manifest.xml
 #repo sync --force-sync -j$(nproc --all)
@@ -96,17 +100,23 @@ repo sync -j4 --force-sync --no-tags --retry=3
 #cp system/sepolicy/private/compat/30.0/30.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/30.0/30.0.ignore.cil
 #cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
 #cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
+#sign
+mkdir -p vendor/extra
+cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
+cd ../..
+
 source build/envsetup.sh
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
-lunch genesis_fog-ap4a-userdebug
+#lunch genesis_fog-ap4a-userdebug
 #echo "" > build/soong/java/Android.bp
 #sed -i '68s/2048M/1024M/' build/soong/java/config/config.go
 #build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
 #m nothing
 echo "After repo sync & before build the code"
 df -h
-mka genesis
+brunch fog
+#mka genesis
 #set -x
 #mmma system/sepolicy -j2 || true
 #set +x
