@@ -111,8 +111,13 @@ export subject='/C=ID/ST=DKI Jakarta/L=Jakarta/O=Android/OU=Android/CN=rom/email
 for x in releasekey platform shared media networkstack verity otakey testkey sdk_sandbox bluetooth nfc; do \
     yes "" | ./development/tools/make_key vendor/horizon/signing/keys/$x "$subject"; \
 done
+
 mv vendor/horizon/release/aconfig/ap4a/com.android.settings.flags vendor/horizon/release/aconfig/bp1a/
 rm -rf vendor/horizon/release/aconfig/ap4a
+mkdir bckp_;cd bckp_
+wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz.bp;mv Android_hz.bp ../vendor/horizon/release/aconfig/bp1a/com.android.settings.flags/
+cd ..
+
 source build/envsetup.sh
 #breakfast fog eng
 #lunch carbon_fog-userdebug
@@ -126,7 +131,7 @@ echo "After repo sync & before build the code"
 df -h
 #brunch fog
 #breakfast fog
-echo "lunch pertama"
+#echo "lunch pertama"
 lunch horizon_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
