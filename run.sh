@@ -75,12 +75,12 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-11.0 .repo/local_manifests
 #repo init --depth 1 -u https://github.com/GenesisOS-Staging/manifest.git -b verve --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-GenesisOS .repo/local_manifests
-repo init --depth 1 -u https://git.libremobileos.com/LMODroid/manifest.git -b fifteen --git-lfs
-
-
+#repo init --depth 1 -u https://git.libremobileos.com/LMODroid/manifest.git -b fifteen --git-lfs
 #git clone https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --depth 1 .repo
 #repo init -u https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --git-lfs
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-LMODroid .repo/local_manifests
+#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-LMODroid .repo/local_manifests
+repo init --depth 1 -u https://github.com/HorizonDroidLab/manifest.git -b fifteen --git-lfs
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-HorizonDroidLab .repo/local_manifests
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
 
@@ -108,9 +108,6 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 mkdir -p vendor/extra
 cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
 cd ../..
-ls -al .repo
-cd .repo;zip -r * ../repo.zip .;cd ..
-wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/go-up repo.zip
 source build/envsetup.sh
 #breakfast fog eng
 #lunch carbon_fog-userdebug
@@ -122,7 +119,9 @@ source build/envsetup.sh
 #m nothing
 echo "After repo sync & before build the code"
 df -h
-brunch fog
+#brunch fog
+breakfast fog
+mka horizon
 #mka genesis
 #set -x
 #mmma system/sepolicy -j2 || true
