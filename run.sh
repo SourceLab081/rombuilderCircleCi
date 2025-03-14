@@ -120,7 +120,8 @@ source build/envsetup.sh
 echo "After repo sync & before build the code"
 df -h
 #brunch fog
-breakfast fog
+#breakfast fog
+lunch horizon_fog-bp1a-userdebug
 mka horizon
 #mka genesis
 #set -x
