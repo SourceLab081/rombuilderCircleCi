@@ -131,11 +131,11 @@ lunch horizon_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
 
-m horizon
+#m horizon
 
 #mka genesis
 #set -x
-#mmma system/sepolicy -j2 || true
+mmma system/sepolicy -j2 || true
 #set +x
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
