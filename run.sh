@@ -115,7 +115,8 @@ done
 mv vendor/horizon/release/aconfig/ap4a/com.android.settings.flags vendor/horizon/release/aconfig/bp1a/
 rm -rf vendor/horizon/release/aconfig/ap4a
 mkdir bckp_;cd bckp_
-wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz.bp;mv Android_hz.bp ../vendor/horizon/release/aconfig/bp1a/com.android.settings.flags/
+wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz.bp && mv Android_hz.bp ../vendor/horizon/release/aconfig/bp1a/com.android.settings.flags/Android.bp
+wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz2.bp && mv Android_hz2.bp ../vendor/horizon/release/aconfig/bp1a/Android.bp
 cd ..
 
 source build/envsetup.sh
