@@ -1,3 +1,5 @@
+date
+start=$(date +%s.%N)
 wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
 cat > ~/.profile << EOF
 # add Android SDK platform tools to path
@@ -123,8 +125,13 @@ echo "After repo sync & before build the code"
 df -h
 #brunch fog
 #breakfast fog
+echo "lunch pertama"
 lunch horizon_fog-bp1a-userdebug
+echo "breakfast kedua"
+breakfast fog
+
 mka horizon
+
 #mka genesis
 #set -x
 #mmma system/sepolicy -j2 || true
@@ -136,6 +143,9 @@ mka horizon
 #lunch carbon_fog-userdebug
 #only chek sepolicy
 #m nothing
+date
+end=$(date +%s.%N)    
+runtime=$(python -c "print(${end} - ${start})")
 #mmma system/sepolicy -j4 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
