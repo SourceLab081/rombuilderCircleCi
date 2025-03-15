@@ -109,10 +109,13 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
 #cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
 #sign
-export subject='/C=ID/ST=DKI Jakarta/L=Jakarta/O=Android/OU=Android/CN=rom/emailAddress=craveio0explore@gmail.com'
-for x in releasekey platform shared media networkstack verity otakey testkey sdk_sandbox bluetooth nfc; do \
-    yes "" | ./development/tools/make_key vendor/droidx/signing/keys/$x "$subject"; \
-done
+mkdir -p vendor/extra
+cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
+cd ../..
+#export subject='/C=ID/ST=DKI Jakarta/L=Jakarta/O=Android/OU=Android/CN=rom/emailAddress=craveio0explore@gmail.com'
+#for x in releasekey platform shared media networkstack verity otakey testkey sdk_sandbox bluetooth nfc; do \
+#    yes "" | ./development/tools/make_key vendor/horizon/signing/keys/$x "$subject"; \
+#done
 
 #mv vendor/horizon/release/aconfig/ap4a/com.android.settings.flags vendor/horizon/release/aconfig/bp1a/
 #rm -rf vendor/horizon/release/aconfig/ap4a
