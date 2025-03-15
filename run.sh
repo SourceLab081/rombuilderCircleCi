@@ -119,6 +119,11 @@ wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Androi
 wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz2.bp && mv Android_hz2.bp ../vendor/horizon/release/aconfig/bp1a/Android.bp
 cd ..
 
+sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.scl 
+sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.textproto
+sed -i 's/lineage/horizon/g' vendor/horizon/release/release_configs/bp1a.textproto
+sed -i 's/lineage/horizon/g' vendor/horizon/release/aconfig/bp1a/Android.bp
+
 source build/envsetup.sh
 #breakfast fog eng
 #lunch carbon_fog-userdebug
