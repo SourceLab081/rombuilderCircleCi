@@ -81,8 +81,10 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #git clone https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --depth 1 .repo
 #repo init -u https://github.com/AmogOS-Rom/android_manifest.git -b fifteen --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-LMODroid .repo/local_manifests
-repo init --depth 1 -u https://github.com/HorizonDroidLab/manifest.git -b fifteen --git-lfs
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-HorizonDroidLab .repo/local_manifests
+#repo init --depth 1 -u https://github.com/HorizonDroidLab/manifest.git -b fifteen --git-lfs
+#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-HorizonDroidLab .repo/local_manifests
+repo init --depth=1 -u https://github.com/DroidX-UI/manifest.git -b 15_v2 --git-lfs
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-DroidX-UI .repo/local_manifests
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
 
@@ -109,21 +111,21 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #sign
 export subject='/C=ID/ST=DKI Jakarta/L=Jakarta/O=Android/OU=Android/CN=rom/emailAddress=craveio0explore@gmail.com'
 for x in releasekey platform shared media networkstack verity otakey testkey sdk_sandbox bluetooth nfc; do \
-    yes "" | ./development/tools/make_key vendor/horizon/signing/keys/$x "$subject"; \
+    yes "" | ./development/tools/make_key vendor/droidx/signing/keys/$x "$subject"; \
 done
 
-mv vendor/horizon/release/aconfig/ap4a/com.android.settings.flags vendor/horizon/release/aconfig/bp1a/
-rm -rf vendor/horizon/release/aconfig/ap4a
-mkdir bckp_;cd bckp_
-wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz.bp && mv Android_hz.bp ../vendor/horizon/release/aconfig/bp1a/com.android.settings.flags/Android.bp
-wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz2.bp && mv Android_hz2.bp ../vendor/horizon/release/aconfig/bp1a/Android.bp
-wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/paths.go && mv paths.go ../build/soong/android/paths.go
-cd ..
+#mv vendor/horizon/release/aconfig/ap4a/com.android.settings.flags vendor/horizon/release/aconfig/bp1a/
+#rm -rf vendor/horizon/release/aconfig/ap4a
+#mkdir bckp_;cd bckp_
+#wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz.bp && mv Android_hz.bp ../vendor/horizon/release/aconfig/bp1a/com.android.settings.flags/Android.bp
+#wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz2.bp && mv Android_hz2.bp ../vendor/horizon/release/aconfig/bp1a/Android.bp
+#wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/paths.go && mv paths.go ../build/soong/android/paths.go
+#cd ..
 
-sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.scl 
-sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.textproto
-sed -i 's/lineage/horizon/g' vendor/horizon/release/release_configs/bp1a.textproto
-sed -i 's/lineage/horizon/g' vendor/horizon/release/aconfig/bp1a/Android.bp
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.scl 
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.textproto
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/release_configs/bp1a.textproto
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/aconfig/bp1a/Android.bp
 
 source build/envsetup.sh
 #breakfast fog eng
@@ -139,15 +141,16 @@ df -h
 #brunch fog
 #breakfast fog
 #echo "lunch pertama"
-lunch horizon_fog-bp1a-userdebug
+#lunch horizon_fog-bp1a-userdebug
+lunch droidx_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
 
 #m horizon
-
+m bacon
 #mka genesis
 #set -x
-mmma system/sepolicy -j2 || true
+#mmma system/sepolicy -j2 || true
 #set +x
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
