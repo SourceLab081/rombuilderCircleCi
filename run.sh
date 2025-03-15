@@ -151,10 +151,10 @@ lunch droidx_fog-bp1a-userdebug
 #breakfast fog
 
 #m horizon
-m bacon
+#m bacon
 #mka genesis
 #set -x
-#mmma system/sepolicy -j2 || true
+mmma system/sepolicy -j2 || true
 #set +x
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
