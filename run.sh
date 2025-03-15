@@ -117,6 +117,7 @@ rm -rf vendor/horizon/release/aconfig/ap4a
 mkdir bckp_;cd bckp_
 wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz.bp && mv Android_hz.bp ../vendor/horizon/release/aconfig/bp1a/com.android.settings.flags/Android.bp
 wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/Android_hz2.bp && mv Android_hz2.bp ../vendor/horizon/release/aconfig/bp1a/Android.bp
+wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/paths.go && mv paths.go ../build/soong/android/paths.go
 cd ..
 
 sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.scl 
