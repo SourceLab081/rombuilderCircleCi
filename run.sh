@@ -112,6 +112,7 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 mkdir -p vendor/extra
 cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
 cd ../..
+
 #export subject='/C=ID/ST=DKI Jakarta/L=Jakarta/O=Android/OU=Android/CN=rom/emailAddress=craveio0explore@gmail.com'
 #for x in releasekey platform shared media networkstack verity otakey testkey sdk_sandbox bluetooth nfc; do \
 #    yes "" | ./development/tools/make_key vendor/horizon/signing/keys/$x "$subject"; \
@@ -151,10 +152,10 @@ lunch droidx_fog-bp1a-userdebug
 #breakfast fog
 
 #m horizon
-#m bacon
+m bacon
 #mka genesis
 #set -x
-mmma system/sepolicy -j2 || true
+#mmma system/sepolicy -j2 || true
 #set +x
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
