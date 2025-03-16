@@ -12,7 +12,7 @@ if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
 
-#export JAVA_TOOL_OPTIONS="-Xms4g -Xmx12g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
+export JAVA_TOOL_OPTIONS="-Xms4g -Xmx12g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
 git config --global user.email "tester@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -126,17 +126,17 @@ done
 #wget https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/paths.go && mv paths.go ../build/soong/android/paths.go
 #cd ..
 
-sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.scl 
-sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.textproto
-sed -i 's/lineage/horizon/g' vendor/horizon/release/release_configs/bp1a.textproto
-cat vendor/horizon/release/aconfig/bp1a/Android.bp
-sed -i 's/lineage/horizon/g' vendor/horizon/release/aconfig/bp1a/Android.bp
-cat vendor/horizon/release/aconfig/bp1a/Android.bp
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.scl 
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/build_config/bp1a.textproto
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/release_configs/bp1a.textproto
+#cat vendor/horizon/release/aconfig/bp1a/Android.bp
+#sed -i 's/lineage/horizon/g' vendor/horizon/release/aconfig/bp1a/Android.bp
+#cat vendor/horizon/release/aconfig/bp1a/Android.bp
 #printf "\nfog" >> horizon-maintainers/devices.list
 #rm -rf system/qcom/softap/sdk
 source build/envsetup.sh
 #export SELINUX_IGNORE_NEVERALLOWS=true
-#export ALLOW_MISSING_DEPENDENCIES=true
+export ALLOW_MISSING_DEPENDENCIES=true
 #breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
