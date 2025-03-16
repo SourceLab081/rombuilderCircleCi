@@ -131,8 +131,10 @@ cd ../..
 #sed -i 's/lineage/horizon/g' vendor/horizon/release/release_configs/bp1a.textproto
 #sed -i 's/lineage/horizon/g' vendor/horizon/release/aconfig/bp1a/Android.bp
 #printf "\nfog" >> horizon-maintainers/devices.list
-rm -rf system/qcom/softap/sdk
+#rm -rf system/qcom/softap/sdk
 source build/envsetup.sh
+export SELINUX_IGNORE_NEVERALLOWS=true
+export ALLOW_MISSING_DEPENDENCIES=true
 #breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
