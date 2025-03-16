@@ -135,8 +135,8 @@ cat vendor/horizon/release/aconfig/bp1a/Android.bp
 #printf "\nfog" >> horizon-maintainers/devices.list
 #rm -rf system/qcom/softap/sdk
 source build/envsetup.sh
-export SELINUX_IGNORE_NEVERALLOWS=true
-export ALLOW_MISSING_DEPENDENCIES=true
+#export SELINUX_IGNORE_NEVERALLOWS=true
+#export ALLOW_MISSING_DEPENDENCIES=true
 #breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
@@ -155,11 +155,12 @@ lunch horizon_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
 
-m horizon
+#m horizon
 #m bacon
 #mka genesis
 #set -x
-#mmma system/sepolicy -j2 || true
+mmma system/sepolicy -j2 
+#|| true
 #set +x
 #2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
