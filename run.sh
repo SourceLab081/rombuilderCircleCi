@@ -83,10 +83,10 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-LMODroid .repo/local_manifests
 #repo init --depth 1 -u https://github.com/HorizonDroidLab/manifest.git -b fifteen --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-HorizonDroidLab .repo/local_manifests
-#repo init --depth 1 -u https://github.com/Komodo-OS/manifest -b 15 --git-lfs
-#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Komodo .repo/local_manifests
-repo init --depth=1 -u https://github.com/DroidX-UI/manifest.git -b 15_v2 --git-lfs
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-DroidX-UI .repo/local_manifests
+repo init --depth 1 -u https://github.com/Komodo-OS/manifest -b 15 --git-lfs
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Komodo .repo/local_manifests
+#repo init --depth=1 -u https://github.com/DroidX-UI/manifest.git -b 15_v2 --git-lfs
+#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-DroidX-UI .repo/local_manifests
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
 
@@ -152,17 +152,17 @@ df -h
 #brunch fog
 #breakfast fog
 #echo "lunch pertama"
-#lunch komodo_fog-ap4a-userdebug
+lunch komodo_fog-ap4a-userdebug
 #lunch horizon_fog-bp1a-userdebug
-lunch droidx_fog-bp1a-userdebug
+#lunch droidx_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
 
 #m horizon
-m bacon
+#m bacon
 #mka genesis
 #set -x
-#mka komodo 
+mka komodo 
 #main focus cek sepolicy maybe need time about 30 minute 
 #mmma system/sepolicy -j2 
 #|| true
