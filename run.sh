@@ -147,7 +147,7 @@ source build/envsetup.sh
 #sed -i '68s/2048M/1024M/' build/soong/java/config/config.go
 #build/soong/soong_ui.bash --make-mode -j2 --skip-make --skip-soong-tests
 #m nothing
-echo "After repo sync & before build the code"
+#echo "After repo sync & before build the code"
 df -h
 #brunch fog
 #breakfast fog
