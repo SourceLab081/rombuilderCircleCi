@@ -137,8 +137,10 @@ cd ../..
 #printf "\nfog" >> horizon-maintainers/devices.list
 #rm -rf system/qcom/softap/sdk
 source build/envsetup.sh
-#export SELINUX_IGNORE_NEVERALLOWS=true
-#export ALLOW_MISSING_DEPENDENCIES=true
+#for komodo a15
+rm -rf hardware/xiaomi/aidl/sensors
+export SELINUX_IGNORE_NEVERALLOWS=true
+export ALLOW_MISSING_DEPENDENCIES=true
 #breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
@@ -162,9 +164,9 @@ lunch komodo_fog-ap4a-userdebug
 #m bacon
 #mka genesis
 #set -x
-mka komodo 
-#main focus cek sepolicy maybe need time about 30 minute 
-#mmma system/sepolicy -j2 
+#mka komodo 
+#main focus to check sepolicy maybe need time about 30 minute 
+mmma system/sepolicy -j2 
 #|| true
 #set +x
 #2>&1 | tee build.log
@@ -172,7 +174,8 @@ mka komodo
 #. build/envsetup.sh
 #lunch komodo_ulysse-userdebug
 #lunch carbon_fog-userdebug
-#only chek sepolicy
+#only check sepolicy
+#mmma system/sepolicy -j2
 #m nothing
 date
 end=$(date +%s.%N)    
