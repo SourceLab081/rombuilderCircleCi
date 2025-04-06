@@ -83,10 +83,12 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-LMODroid .repo/local_manifests
 #repo init --depth 1 -u https://github.com/HorizonDroidLab/manifest.git -b fifteen --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-HorizonDroidLab .repo/local_manifests
-repo init --depth 1 -u https://github.com/Komodo-OS/manifest -b 15 --git-lfs
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Komodo .repo/local_manifests
+#repo init --depth 1 -u https://github.com/Komodo-OS/manifest -b 15 --git-lfs
+#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Komodo .repo/local_manifests
 #repo init --depth=1 -u https://github.com/DroidX-UI/manifest.git -b 15_v2 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-DroidX-UI .repo/local_manifests
+repo init --depth 1 -u https://github.com/Miku-UI/manifesto -b Vampire_v3 -b 15 --git-lfs
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Miku-UI .repo/local_manifests
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
 
@@ -111,9 +113,9 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
 #cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
 #sign
-mkdir -p vendor/extra
-cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
-cd ../..
+#mkdir -p vendor/extra
+#cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
+#cd ../..
 
 #export subject='/C=ID/ST=DKI Jakarta/L=Jakarta/O=Android/OU=Android/CN=rom/emailAddress=craveio0explore@gmail.com'
 #for x in releasekey platform shared media networkstack verity otakey testkey sdk_sandbox bluetooth nfc; do \
@@ -138,9 +140,9 @@ cd ../..
 #rm -rf system/qcom/softap/sdk
 source build/envsetup.sh
 #for komodo a15
-rm -rf hardware/xiaomi/aidl/sensors
-export SELINUX_IGNORE_NEVERALLOWS=true
-export ALLOW_MISSING_DEPENDENCIES=true
+#rm -rf hardware/xiaomi/aidl/sensors
+#export SELINUX_IGNORE_NEVERALLOWS=true
+#export ALLOW_MISSING_DEPENDENCIES=true
 #breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
@@ -154,19 +156,20 @@ df -h
 #brunch fog
 #breakfast fog
 #echo "lunch pertama"
-lunch komodo_fog-ap4a-userdebug
+#lunch komodo_fog-ap4a-userdebug
 #lunch horizon_fog-bp1a-userdebug
 #lunch droidx_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
-
+lunch miku_fog-bp1a-userdebug
 #m horizon
 #m bacon
 #mka genesis
 #set -x
 #mka komodo 
 #main focus to check sepolicy maybe need time about 30 minute 
-mmma system/sepolicy -j2 
+#mmma system/sepolicy -j2 
+make diva
 #|| true
 #set +x
 #2>&1 | tee build.log
