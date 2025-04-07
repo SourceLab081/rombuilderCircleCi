@@ -161,7 +161,12 @@ df -h
 #lunch droidx_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
-lunch miku_fog-ap4a-userdebug
+echo "test using breakfast"
+breakfast fog
+echo "second test using lunch"
+lunch miku_fog-userdebug-UNOFFICIAL
+echo "third test"
+lunch miku_fog-bp1a-userdebug-UNOFFICIAL
 #m horizon
 #m bacon
 #mka genesis
