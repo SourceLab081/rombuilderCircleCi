@@ -87,7 +87,7 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Komodo .repo/local_manifests
 #repo init --depth=1 -u https://github.com/DroidX-UI/manifest.git -b 15_v2 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-DroidX-UI .repo/local_manifests
-repo init --depth 1 -u https://github.com/Miku-UI/manifesto -b Vampire_v3 -b 15 --git-lfs
+repo init --depth 1 -u https://github.com/Miku-UI/manifesto -b Vampire_v3 --git-lfs
 rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Miku-UI .repo/local_manifests
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
