@@ -155,18 +155,10 @@ source build/envsetup.sh
 df -h
 #brunch fog
 #breakfast fog
-#echo "lunch pertama"
-#lunch komodo_fog-ap4a-userdebug
-#lunch horizon_fog-bp1a-userdebug
-#lunch droidx_fog-bp1a-userdebug
-#echo "breakfast kedua"
-#breakfast fog
-echo "test using breakfast"
-breakfast fog
-echo "second test using lunch"
-lunch miku_fog-userdebug-UNOFFICIAL
-echo "third test"
-lunch miku_fog-bp1a-userdebug-UNOFFICIAL
+echo "test lunch pertama"
+lunch miku_fog-userdebug
+echo  "second test" 
+lunch miku_fog-bp1a-userdebug
 #m horizon
 #m bacon
 #mka genesis
