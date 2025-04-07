@@ -161,7 +161,7 @@ df -h
 #lunch droidx_fog-bp1a-userdebug
 #echo "breakfast kedua"
 #breakfast fog
-lunch miku_fog-bp1a-userdebug
+lunch miku_fog-ap4a-userdebug
 #m horizon
 #m bacon
 #mka genesis
