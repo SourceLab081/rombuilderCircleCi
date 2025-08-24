@@ -121,9 +121,9 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
 #cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
 #sign
-#mkdir -p vendor/extra
-#cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
-#cd ../..
+mkdir -p vendor/extra
+cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
+cd ../..
 ### not using new hardware/xiaomi/aidl/sensors 
 #wget https://github.com/SourceLab081/uploadz/releases/download/v0.1.3/sens.zip
 #wget https://github.com/SourceLab081/uploadz/releases/download/v0.1.3/sensors.sh
