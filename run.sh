@@ -89,8 +89,10 @@ echo "core processor = $(nproc --all)" >> info_server.txt
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-DroidX-UI .repo/local_manifests
 #repo init --depth 1 -u https://github.com/Miku-UI/manifesto -b Vampire_v3 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Miku-UI .repo/local_manifests
-repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 15-qpr2 --git-lfs
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-VoltageOS .repo/local_manifests
+#repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 15-qpr2 --git-lfs
+#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-VoltageOS .repo/local_manifests
+repo init --depth 1 -u https://github.com/AICP/platform_manifest.git -b v15.0 --git-lfs
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-aicp .repo/local_manifests
 
 #view the log 
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/193/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
@@ -119,9 +121,9 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
 #cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
 #sign
-mkdir -p vendor/extra
-cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
-cd ../..
+#mkdir -p vendor/extra
+#cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
+#cd ../..
 ### not using new hardware/xiaomi/aidl/sensors 
 #wget https://github.com/SourceLab081/uploadz/releases/download/v0.1.3/sens.zip
 #wget https://github.com/SourceLab081/uploadz/releases/download/v0.1.3/sensors.sh
@@ -162,7 +164,7 @@ source build/envsetup.sh
 #m nothing
 #echo "After repo sync & before build the code"
 df -h
-brunch fog
+brunch fog eng
 #breakfast fog
 #lunch miku_fog-bp1a-userdebug
 #m horizon
