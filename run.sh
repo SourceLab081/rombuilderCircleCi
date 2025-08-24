@@ -50,10 +50,13 @@ sudo cp -a ~/repo /usr/local/bin/repo
 #export CCACHE_EXEC=/usr/bin/ccache
 #ccache -M 50G
 #mkdir -p .cache/ccache/tmp
-cat /proc/cpuinfo >> info_server.txt
-cat /proc/meminfo >> info_server.txt
-df -h >> info_server.txt
-echo "core processor = $(nproc --all)" >> info_server.txt
+cat /proc/cpuinfo 
+#>> info_server.txt
+cat /proc/meminfo 
+#>> info_server.txt
+#df -h >> info_server.txt
+echo "core processor = $(nproc --all)" 
+#>> info_server.txt
 #source go-up info_server.txt;
 #make carbon -j$(nproc) |& tee mka_process.txt
 #for filename in out/target/product/fog/*.zip;do source go-up $filename;done
