@@ -167,7 +167,7 @@ source build/envsetup.sh
 #m nothing
 #echo "After repo sync & before build the code"
 df -h
-brunch fog eng
+#brunch fog eng
 #breakfast fog
 #lunch miku_fog-bp1a-userdebug
 #m horizon
@@ -187,7 +187,8 @@ brunch fog eng
 #lunch komodo_ulysse-userdebug
 #lunch carbon_fog-userdebug
 #only check sepolicy
-#mmma system/sepolicy -j2
+lunch aicp_fog-userdebug
+mmma system/sepolicy -j2
 #m nothing
 date
 end=$(date +%s.%N)    
