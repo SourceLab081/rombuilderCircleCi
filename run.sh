@@ -187,7 +187,7 @@ df -h
 #lunch komodo_ulysse-userdebug
 #lunch carbon_fog-userdebug
 #only check sepolicy
-breakfast fog
+#breakfast fog
 mmma system/sepolicy -j2
 #m nothing
 date
