@@ -190,7 +190,8 @@ df -h
 #only check sepolicy
 #breakfast fog
 lunch clover_fog-bp2a-userdebug
-mmma system/sepolicy -j2
+mka clover -j4 
+#mmma system/sepolicy -j2
 #m nothing
 date
 end=$(date +%s.%N)    
