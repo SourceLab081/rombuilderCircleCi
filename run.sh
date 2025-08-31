@@ -94,9 +94,10 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-Miku-UI .repo/local_manifests
 #repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 15-qpr2 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-VoltageOS .repo/local_manifests
-repo init --depth 1 -u https://github.com/AICP/platform_manifest.git -b v15.0 --git-lfs
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-aicp .repo/local_manifests
-
+#repo init --depth 1 -u https://github.com/AICP/platform_manifest.git -b v15.0 --git-lfs
+#rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b 15-aicp .repo/local_manifests
+repo init --depth 1 -u https://github.com/The-Clover-Project/manifest.git -b 16 --git-lfs
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-theCloverProject .repo/local_manifests
 #view the log 
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/200/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
@@ -188,6 +189,7 @@ df -h
 #lunch carbon_fog-userdebug
 #only check sepolicy
 #breakfast fog
+lunch clover_fog-bp2a-userdebug
 mmma system/sepolicy -j2
 #m nothing
 date
