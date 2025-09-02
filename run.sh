@@ -193,7 +193,7 @@ df -h
 #lunch carbon_fog-userdebug
 #only check sepolicy
 #breakfast fog
-lunch clover_fog-bp1a-userdebug
+#lunch clover_fog-bp1a-userdebug
 #mka clover -j4 
 mmma system/sepolicy -j2
 #m nothing
