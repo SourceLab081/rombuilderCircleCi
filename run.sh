@@ -100,7 +100,7 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-theCloverProject .repo/local_manifests
 #repo init --depth 1 -u https://github.com/The-Clover-Project/manifest.git -b 15-qpr2 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 15-theCloverProject .repo/local_manifests
-repo init --depth 1 -u https://github.com/online0code/manifest_omnirom -b android-16 --git-lfs
+repo init --depth 1 -u https://github.com/omnirom/android.git -b android-16 --git-lfs
 rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-omnirom .repo/local_manifests
 echo "repo sync"
 #view the log 
