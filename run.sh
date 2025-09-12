@@ -102,8 +102,10 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 15-theCloverProject .repo/local_manifests
 #repo init --depth 1 -u https://github.com/omnirom/android.git -b android-16 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-omnirom .repo/local_manifests
-repo init --depth 1 -u https://git.halogenos.org/halogenOS/android_manifest.git -b XOS-16.0 --git-lfs
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-c0smicLab .repo/local_manifests
+#repo init --depth 1 -u https://git.halogenos.org/halogenOS/android_manifest.git -b XOS-16.0 --git-lfs
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-c0smicLab .repo/local_manifests
+repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
 echo "repo sync"
 #view the log 
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/207/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
@@ -135,11 +137,10 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 mkdir -p vendor/extra
 cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
 cd ../..
-rm -rf hardware/xiaomi/vibrator
-if [ ! -f script_sch3.sh ]; then
-   wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/script_sch3.sh
+if [ ! -f script_sch2.sh ]; then
+   wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/script_sch2.sh
 fi
-. script_sch3.sh
+. script_sch2.sh
 
 fldr="device/qcom/sepolicy_vndr/legacy-um/generic/vendor/common/"
 wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/file.te && mv file.te $fldr
@@ -206,8 +207,15 @@ df -h
 #lunch carbon_fog-userdebug
 #only check sepolicy
 #breakfast fog
-lunch aosp_fog-bp2a-userdebug
-m bacon
+echo "breakfast/lunch"
+lunch yaap_fog-bp2a-userdebug
+#lunch aosp_fog-bp2a-userdebug
+#breakfast fog eng
+#lunch aicp_fog-eng
+#echo "Breakfast + Build the code"
+#brunch fog userdebug
+echo "build the code"
+m yaap
 #build full aosp_fog-bp2a-userdebug
 #mka bacon -j2
 #mka clover -j4 
