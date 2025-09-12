@@ -135,7 +135,7 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 mkdir -p vendor/extra
 cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
 cd ../..
-
+rm -rf hardware/xiaomi/vibrator
 if [ ! -f script_sch3.sh ]; then
    wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/script_sch3.sh
 fi
