@@ -171,11 +171,12 @@ wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/init_shell
 #cat vendor/horizon/release/aconfig/bp1a/Android.bp
 #printf "\nfog" >> horizon-maintainers/devices.list
 #rm -rf system/qcom/softap/sdk
+export TARGET_BOARD_PLATFORM=bengal
 source build/envsetup.sh
 #for komodo a15
 #rm -rf hardware/xiaomi/aidl/sensors
-#export SELINUX_IGNORE_NEVERALLOWS=true
-#export ALLOW_MISSING_DEPENDENCIES=true
+export SELINUX_IGNORE_NEVERALLOWS=true
+export ALLOW_MISSING_DEPENDENCIES=true
 #breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
