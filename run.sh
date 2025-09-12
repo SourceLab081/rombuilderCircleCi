@@ -206,8 +206,9 @@ df -h
 #lunch carbon_fog-userdebug
 #only check sepolicy
 #breakfast fog
-lunch aosp_fog-bp2a-userdebug
-mka bacon -j2
+#lunch 
+build full aosp_fog-bp2a-userdebug
+#mka bacon -j2
 #mka clover -j4 
 #mmma system/sepolicy -j2
 #m nothing
