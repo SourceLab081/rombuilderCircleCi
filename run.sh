@@ -220,7 +220,7 @@ echo "build the code"
 #build full aosp_fog-bp2a-userdebug
 #mka bacon -j2
 #mka clover -j4 
-#mmma system/sepolicy -j2
+mmma system/sepolicy -j2
 #m nothing
 date
 end=$(date +%s.%N)    
@@ -228,7 +228,7 @@ runtime=$(python -c "print(${end} - ${start})")
 #mmma system/sepolicy -j4 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
-m bacon
+#m bacon
 #mka bacon
 #make carbon -j$(nproc --all)
 #lunch lineage_ugglite-userdebug
