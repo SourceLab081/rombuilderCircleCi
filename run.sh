@@ -31,8 +31,8 @@ uname -a >> info_server.txt
 df -h
 export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
-sudo apt-get update
-sudo apt-get -y upgrade
+#sudo apt-get update
+#sudo apt-get -y upgrade
 sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
 # ccache
 sudo needrestart -r a
@@ -206,8 +206,9 @@ df -h
 #lunch carbon_fog-userdebug
 #only check sepolicy
 #breakfast fog
-#lunch 
-build full aosp_fog-bp2a-userdebug
+lunch aosp_fog-bp2a-userdebug
+m bacon
+#build full aosp_fog-bp2a-userdebug
 #mka bacon -j2
 #mka clover -j4 
 #mmma system/sepolicy -j2
