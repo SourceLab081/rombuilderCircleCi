@@ -102,10 +102,10 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 15-theCloverProject .repo/local_manifests
 #repo init --depth 1 -u https://github.com/omnirom/android.git -b android-16 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-omnirom .repo/local_manifests
-#repo init --depth 1 -u https://git.halogenos.org/halogenOS/android_manifest.git -b XOS-16.0 --git-lfs
-#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-c0smicLab .repo/local_manifests
-repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
+repo init --depth 1 -u https://git.halogenos.org/halogenOS/android_manifest.git -b XOS-16.0 --git-lfs
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-c0smicLab .repo/local_manifests
+#repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
 echo "repo sync"
 #view the log 
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/207/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
@@ -209,14 +209,14 @@ df -h
 #only check sepolicy
 #breakfast fog
 echo "breakfast/lunch"
-lunch yaap_fog-bp2a-userdebug
-#lunch aosp_fog-bp2a-userdebug
+#lunch yaap_fog-bp2a-userdebug
+lunch aosp_fog-bp2a-userdebug
 #breakfast fog eng
 #lunch aicp_fog-eng
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
-m yaap
+#m yaap
 #build full aosp_fog-bp2a-userdebug
 #mka bacon -j2
 #mka clover -j4 
@@ -228,7 +228,7 @@ runtime=$(python -c "print(${end} - ${start})")
 #mmma system/sepolicy -j4 2>&1 | tee build.log
 #m system/sepolicy 2>&1 | tee build.log
 #echo "build the code"
-#m bacon
+m bacon
 #mka bacon
 #make carbon -j$(nproc --all)
 #lunch lineage_ugglite-userdebug
