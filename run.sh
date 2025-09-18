@@ -104,13 +104,14 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-omnirom .repo/local_manifests
 #repo init --depth 1 -u https://git.halogenos.org/halogenOS/android_manifest.git -b XOS-16.0 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-c0smicLab .repo/local_manifests
-repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 16 --git-lfs --git-lfs
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
 #repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
+repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 16 --git-lfs
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
+
 echo "repo sync"
 #view the log 
-#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/220/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
+#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/221/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
