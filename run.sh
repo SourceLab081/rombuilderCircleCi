@@ -111,7 +111,7 @@ rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_
 
 echo "repo sync"
 #view the log 
-#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/221/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
+#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/222/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
@@ -146,7 +146,7 @@ if [ ! -f script_sch2.sh ]; then
 fi
 . script_sch2.sh
 
-cd $curDir
+curDir=`pwd`
 cd kernel/xiaomi/fog && rm -rf KernelSU-Next && curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash - && cd $curDir
 
 #fldr="device/qcom/sepolicy_vndr/legacy-um/generic/vendor/common/"
