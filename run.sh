@@ -111,7 +111,7 @@ rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_
 
 echo "repo sync"
 #view the log 
-#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/223/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
+#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/224/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
@@ -127,7 +127,7 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
 cat /etc/issue.net > installed_
 apt list --installed >> installed_
-go-up  installed_
+. go-up  installed_
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
