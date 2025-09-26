@@ -104,10 +104,10 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-omnirom .repo/local_manifests
 #repo init --depth 1 -u https://git.halogenos.org/halogenOS/android_manifest.git -b XOS-16.0 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-c0smicLab .repo/local_manifests
-#repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
-#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
-repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 16 --git-lfs
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
+repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
+#repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 16 --git-lfs
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
 
 echo "repo sync"
 #view the log 
@@ -124,10 +124,10 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 ##Then go into the root of the source folder and type the following:
 #./prebuilts/sdk/tools/jack-admin kill-server
 #./prebuilts/sdk/tools/jack-admin start-server
-wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
-cat /etc/issue.net > installed_
-apt list --installed >> installed_
-. go-up  installed_
+#wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up 
+#cat /etc/issue.net > installed_
+#apt list --installed >> installed_
+#. go-up  installed_
 #&& source go-up sync_process20252401_0700.txt
 #source go-up build.log
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
@@ -144,6 +144,18 @@ mkdir -p vendor/extra
 cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
 cd ../..
 
+#for yaap
+# disable fsgen
+cd build/soong && curl https://gist.githubusercontent.com/bagaskara815/2f26516ef378fe8eae9803749e331a09/raw/fsgen.patch >> fsgen.patch && git am fsgen.patch && rm fsgen.patch && cd ../../
+
+# remove other power
+#rm -f vendor/qcom/opensource/power/power.xml
+curDir=`pwd`
+cd vendor/qcom/opensource/power/ && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/power.xml
+cd $curDir
+rm -f out/target/product/fog//vendor/etc/vintf/manifest/power.xml
+rm -f /tmp/src/android/out/soong/.temp/target_filesb4_jkj_q/VENDOR/etc/vintf/manifest/power.xml
+#end for yaap
 if [ ! -f script_sch2.sh ]; then
    wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/script_sch2.sh
 fi
