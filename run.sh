@@ -231,14 +231,16 @@ df -h
 #only check sepolicy
 #breakfast fog
 #echo "breakfast/lunch"
-#lunch yaap_fog-bp2a-userdebug
+lunch yaap_fog-bp2a-user
+#lunch yaap_fog-user
+make installclean
 #lunch aosp_fog-bp2a-userdebug
 #breakfast fog eng
 #lunch aicp_fog-eng
-echo "Breakfast + Build the code"
-brunch fog userdebug
+#echo "Breakfast + Build the code"
+#brunch fog userdebug
 echo "build the code"
-#m yaap
+TARGET_BUILD_GAPPS=true m yaap
 #build full aosp_fog-bp2a-userdebug
 #mka bacon -j2
 #mka clover -j4 
