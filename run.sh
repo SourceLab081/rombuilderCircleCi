@@ -147,7 +147,7 @@ cd ../..
 #for yaap
 # disable fsgen
 cd build/soong && curl https://gist.githubusercontent.com/bagaskara815/2f26516ef378fe8eae9803749e331a09/raw/fsgen.patch >> fsgen.patch && git am fsgen.patch && rm fsgen.patch && cd ../../
-
+export TARGET_BOARD_PLATFORM=bengal
 # remove other power
 #rm -f vendor/qcom/opensource/power/power.xml
 curDir=`pwd`
