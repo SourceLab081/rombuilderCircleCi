@@ -104,14 +104,16 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-omnirom .repo/local_manifests
 #repo init --depth 1 -u https://git.halogenos.org/halogenOS/android_manifest.git -b XOS-16.0 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-c0smicLab .repo/local_manifests
-repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
+#repo init --depth 1 -u https://github.com/yaap/manifest.git -b sixteen --git-lfs
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
 #repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 16 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
+repo init --depth 1 -u https://github.com/AtlantisOS/manifest -b 16 --git-lfs 
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
 
 echo "repo sync"
 #view the log 
-#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/224/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
+#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/228/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
@@ -146,22 +148,22 @@ cd ../..
 
 #for yaap
 # disable fsgen
-cd build/soong && curl https://gist.githubusercontent.com/bagaskara815/2f26516ef378fe8eae9803749e331a09/raw/fsgen.patch >> fsgen.patch && git am fsgen.patch && rm fsgen.patch && cd ../../
-export TARGET_BOARD_PLATFORM=bengal
+#cd build/soong && curl https://gist.githubusercontent.com/bagaskara815/2f26516ef378fe8eae9803749e331a09/raw/fsgen.patch >> fsgen.patch && git am fsgen.patch && rm fsgen.patch && cd ../../
+#export TARGET_BOARD_PLATFORM=bengal
 # remove other power
 #rm -f vendor/qcom/opensource/power/power.xml
 curDir=`pwd`
-cd vendor/qcom/opensource/power/ && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/power.xml
-cd $curDir
-rm -f out/target/product/fog//vendor/etc/vintf/manifest/power.xml
-rm -f /tmp/src/android/out/soong/.temp/target_filesb4_jkj_q/VENDOR/etc/vintf/manifest/power.xml
+#cd vendor/qcom/opensource/power/ && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/power.xml
+#cd $curDir
+#rm -f out/target/product/fog//vendor/etc/vintf/manifest/power.xml
+#rm -f /tmp/src/android/out/soong/.temp/target_filesb4_jkj_q/VENDOR/etc/vintf/manifest/power.xml
 #end for yaap
 if [ ! -f script_sch2.sh ]; then
    wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/script_sch2.sh
 fi
 . script_sch2.sh
 
-curDir=`pwd`
+#curDir=`pwd`
 cd kernel/xiaomi/fog && rm -rf KernelSU-Next && curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash - && cd $curDir
 
 #fldr="device/qcom/sepolicy_vndr/legacy-um/generic/vendor/common/"
@@ -231,16 +233,17 @@ df -h
 #only check sepolicy
 #breakfast fog
 #echo "breakfast/lunch"
-lunch yaap_fog-bp2a-user
+lunch atlantis_fog-bp2a-eng
 #lunch yaap_fog-user
-make installclean
+#make installclean
 #lunch aosp_fog-bp2a-userdebug
 #breakfast fog eng
 #lunch aicp_fog-eng
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
-TARGET_BUILD_GAPPS=true m yaap
+#TARGET_BUILD_GAPPS=true m yaap
+m atlantis
 #build full aosp_fog-bp2a-userdebug
 #mka bacon -j2
 #mka clover -j4 
