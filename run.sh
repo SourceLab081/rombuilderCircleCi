@@ -110,11 +110,12 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
 #repo init --depth 1 -u https://github.com/AtlantisOS/manifest -b 16 --git-lfs 
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
+df -h
 repo init --depth 1 -u https://github.com/SailfishOS-miatoll/android  -b hybris-18.1 --git-lfs --no-clone-bundle
 rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
 echo "repo sync"
 #view the log 
-#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/230/output/103/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
+#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/232/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
@@ -153,7 +154,9 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #export TARGET_BOARD_PLATFORM=bengal
 # remove other power
 #rm -f vendor/qcom/opensource/power/power.xml
+df -h
 curDir=`pwd`
+cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
 #cd vendor/qcom/opensource/power/ && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/power.xml
 #cd $curDir
 #rm -f out/target/product/fog//vendor/etc/vintf/manifest/power.xml
@@ -234,7 +237,7 @@ df -h
 #only check sepolicy
 #breakfast fog
 #echo "breakfast/lunch"
-l#unch atlantis_fog-bp2a-eng
+#lunch atlantis_fog-bp2a-eng
 #lunch yaap_fog-user
 #make installclean
 #lunch aosp_fog-bp2a-userdebug
