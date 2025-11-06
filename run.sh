@@ -55,8 +55,11 @@ ls -al /dev/block/
 #mkdir -p .cache/ccache/tmp
 set -x
 mkdir test01;sudo mount /dev/nvme0n1p1 test01
+la -la test01
 mkdir test02;sudo mount /dev/nvme0n1p14 test02 
 df -h
+mount
+fdisk
 set +x
 cat /proc/cpuinfo 
 
