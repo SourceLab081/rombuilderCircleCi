@@ -42,6 +42,7 @@ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
 ls -al /dev/
+echo "list block"
 ls -al /dev/block/
 #repo init -u https://github.com/CarbonROM/android.git --depth 1 -b cr-9.0 --git-lfs
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-9.0 .repo/local_manifests
@@ -52,7 +53,12 @@ ls -al /dev/block/
 #export CCACHE_EXEC=/usr/bin/ccache
 #ccache -M 50G
 #mkdir -p .cache/ccache/tmp
+set -x
+mkdir test01;mount /dev/nvme0n1p1 test01
+mkdir test02;mount /dev/nvme0n1p14 test01 
+set +x
 cat /proc/cpuinfo 
+
 #>> info_server.txt
 cat /proc/meminfo 
 #>> info_server.txt
