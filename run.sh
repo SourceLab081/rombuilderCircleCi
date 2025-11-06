@@ -28,11 +28,11 @@ echo "memory :"
 free -h
 free -h >> info_server.txt
 uname -a >> info_server.txt
-df -h
 export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
 #sudo apt-get update
 #sudo apt-get -y upgrade
+df -h
 sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
 # ccache
 sudo needrestart -r a
@@ -41,6 +41,8 @@ sudo needrestart -r a
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
+ls -al /dev/
+ls -al /dev/block/
 #repo init -u https://github.com/CarbonROM/android.git --depth 1 -b cr-9.0 --git-lfs
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-9.0 .repo/local_manifests
 #repo sync -j$(nproc) --force-sync --no-tags
@@ -112,7 +114,7 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
 df -h
 repo init --depth 1 -u https://github.com/SailfishOS-miatoll/android  -b hybris-18.1 --git-lfs --no-clone-bundle
-rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
 echo "repo sync"
 #view the log 
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/232/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
