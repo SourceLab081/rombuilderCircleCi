@@ -54,8 +54,9 @@ ls -al /dev/block/
 #ccache -M 50G
 #mkdir -p .cache/ccache/tmp
 set -x
-mkdir test01;mount /dev/nvme0n1p1 test01
-mkdir test02;mount /dev/nvme0n1p14 test01 
+mkdir test01;sudo mount /dev/nvme0n1p1 test01
+mkdir test02;sudo mount /dev/nvme0n1p14 test02 
+df -h
 set +x
 cat /proc/cpuinfo 
 
