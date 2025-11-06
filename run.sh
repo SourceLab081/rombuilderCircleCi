@@ -54,13 +54,10 @@ ls -al /dev/block/
 #ccache -M 50G
 #mkdir -p .cache/ccache/tmp
 set -x
-mkdir test01;sudo mount /dev/nvme0n1p1 test01
-la -la test01
-mkdir test02;sudo mount /dev/nvme0n1p14 test02 
+mkdir sudo mkdir /test01;sudo mount /dev/nvme0n1p1 /test01
+ls -la test01
 df -h
 mount
-fdisk
-set +x
 cat /proc/cpuinfo 
 
 #>> info_server.txt
