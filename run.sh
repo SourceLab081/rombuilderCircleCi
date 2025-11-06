@@ -108,12 +108,13 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-yaap .repo/local_manifests
 #repo init --depth 1 -u https://github.com/VoltageOS/manifest.git -b 16 --git-lfs
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
-repo init --depth 1 -u https://github.com/AtlantisOS/manifest -b 16 --git-lfs 
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
-
+#repo init --depth 1 -u https://github.com/AtlantisOS/manifest -b 16 --git-lfs 
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
+repo init --depth 1 -u https://github.com/SailfishOS-miatoll/android  -b hybris-18.1 --git-lfs --no-clone-bundle
+rm -rf .repo/local_manifests && git clone https://gitlab.com/sourceslab062/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
 echo "repo sync"
 #view the log 
-#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/230/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
+#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/230/output/103/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
@@ -142,9 +143,9 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #cp system/sepolicy/private/compat/31.0/31.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/31.0/31.0.ignore.cil
 #cp system/sepolicy/private/compat/32.0/32.0.ignore.cil system/sepolicy/prebuilts/api/33.0/private/compat/32.0/32.0.ignore.cil
 #sign
-mkdir -p vendor/extra
-cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
-cd ../..
+#mkdir -p vendor/extra
+#cd vendor/extra && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.8/sign.zip && unzip sign.zip && rm sign.zip
+#cd ../..
 
 #for yaap
 # disable fsgen
@@ -158,13 +159,13 @@ curDir=`pwd`
 #rm -f out/target/product/fog//vendor/etc/vintf/manifest/power.xml
 #rm -f /tmp/src/android/out/soong/.temp/target_filesb4_jkj_q/VENDOR/etc/vintf/manifest/power.xml
 #end for yaap
-if [ ! -f script_sch2.sh ]; then
-   wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/script_sch2.sh
-fi
-. script_sch2.sh
+#if [ ! -f script_sch2.sh ]; then
+#   wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/script_sch2.sh
+#fi
+#. script_sch2.sh
 
 #curDir=`pwd`
-cd kernel/xiaomi/fog && rm -rf KernelSU-Next && curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash - && cd $curDir
+#cd kernel/xiaomi/fog && rm -rf KernelSU-Next && curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash - && cd $curDir
 
 #fldr="device/qcom/sepolicy_vndr/legacy-um/generic/vendor/common/"
 #wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/file.te && mv file.te $fldr
@@ -229,21 +230,22 @@ df -h
 #m system/sepolicy 2>&1 | tee build.log
 #. build/envsetup.sh
 #lunch komodo_ulysse-userdebug
-#lunch carbon_fog-userdebug
+#lunch lineage_fog-userdebug
 #only check sepolicy
 #breakfast fog
 #echo "breakfast/lunch"
-lunch atlantis_fog-bp2a-eng
+l#unch atlantis_fog-bp2a-eng
 #lunch yaap_fog-user
 #make installclean
 #lunch aosp_fog-bp2a-userdebug
-#breakfast fog eng
+breakfast fog userdebug
 #lunch aicp_fog-eng
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
+make -j$(nproc --all) hybris-hal droidmedia libbiometry_fp_api
 #TARGET_BUILD_GAPPS=true m yaap
-m atlantis
+#m atlantis
 #build full aosp_fog-bp2a-userdebug
 #mka bacon -j2
 #mka clover -j4 
