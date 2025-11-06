@@ -55,7 +55,8 @@ ls -al /dev/block/
 #mkdir -p .cache/ccache/tmp
 set -x
 sudo mkdir /test01;sudo mount /dev/nvme0n1p1 /test01
-ls -lah test01
+ls -lah /test01
+du -hs /test01
 df -h
 mount
 cat /proc/cpuinfo 
@@ -124,7 +125,7 @@ repo init --depth 1 -u https://github.com/SailfishOS-miatoll/android  -b hybris-
 rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
 echo "repo sync"
 #view the log 
-#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/238/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
+#https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/239/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
@@ -255,6 +256,7 @@ breakfast fog userdebug
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
+make -j$(nproc --all) libui_compat_layer
 make -j$(nproc --all) hybris-hal droidmedia libbiometry_fp_api
 #TARGET_BUILD_GAPPS=true m yaap
 #m atlantis
