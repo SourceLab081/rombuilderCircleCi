@@ -256,8 +256,8 @@ breakfast fog userdebug
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
-make -j$(nproc --all) libui_compat_layer
-make -j$(nproc --all) hybris-hal droidmedia libbiometry_fp_api
+make -j$(nproc --all) hybris-hal droidmedia libui_compat_layer libsfplugin_ccodec 
+#libbiometry_fp_api
 #TARGET_BUILD_GAPPS=true m yaap
 #m atlantis
 #build full aosp_fog-bp2a-userdebug
