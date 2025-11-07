@@ -21,10 +21,18 @@ echo "run command"
 set -x
 ./sfbootstrap.sh init xiaomi-fog
 ./sfbootstrap.sh status
-
+ls -al
 ./sfbootstrap.sh chroot setup
+df -h 
+ls -al
 ./sfbootstrap.sh sync
+ df -h 
+ ls -al
 ./sfbootstrap.sh build hal
 ./sfbootstrap.sh build packages
 set +x
+ls -al
+df -h
+wget https://github.com/SourceLab081/files/raw/refs/heads/main/go-up
+. go-up src/hybris-18.1/droid-hal-fog.log
 df -h
