@@ -13,10 +13,13 @@ echo 18G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 df -h
-wget https://github.com/SourceLab081/sfbootstrap/archive/refs/heads/master.zip
-unzip master.zip
 export dirHome=`pwd`
-cd sfbootstrap-master
+sudo apt install -y git-core zip
+#wget https://github.com/SourceLab081/sfbootstrap/archive/refs/heads/master.zip
+#unzip master.zip
+#cd sfbootstrap-master
+git clone https://github.com/SourceLab081/sfbootstrap
+cd sfbootstrap
 echo "run command"
 set -x
 ./sfbootstrap.sh init xiaomi-fog
