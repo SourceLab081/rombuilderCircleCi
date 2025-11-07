@@ -166,6 +166,7 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #rm -f vendor/qcom/opensource/power/power.xml
 df -h
 curDir=`pwd`
+export ANDROID_ROOT=`pwd`
 cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
 echo "apply patch"
 . fog-patches/fog_patches.sh
@@ -217,7 +218,6 @@ source build/envsetup.sh
 #rm -rf hardware/xiaomi/aidl/sensors
 export SELINUX_IGNORE_NEVERALLOWS=true
 export ALLOW_MISSING_DEPENDENCIES=true
-export ANDROID_ROOT=`pwd`
 #breakfast fog eng
 #lunch carbon_fog-userdebug
 #lunch genesis_fog-userdebug
