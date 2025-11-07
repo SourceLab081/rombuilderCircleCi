@@ -20,6 +20,9 @@ cd sfbootstrap-master
 echo "run command"
 set -x
 ./sfbootstrap.sh init xiaomi-fog
+./sfbootstrap.sh status
+
+./sfbootstrap.sh chroot setup
 ./sfbootstrap.sh sync
 ./sfbootstrap.sh build hal
 ./sfbootstrap.sh build packages
