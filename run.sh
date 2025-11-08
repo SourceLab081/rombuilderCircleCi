@@ -170,6 +170,7 @@ export ANDROID_ROOT=`pwd`
 cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
 echo "apply patch"
 . hybris-patches/apply-patches.sh
+cd $ANDROID_ROOT
 . fog-patches/fog_patches.sh
 #cd vendor/qcom/opensource/power/ && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/power.xml
 #cd $curDir
