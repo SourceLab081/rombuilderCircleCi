@@ -37,8 +37,6 @@ set +x
 ls -al
 df -h
 cat /var/tmp/rpm-tmp.*
-cat rpm/droid-hal-fog.spec
 wget https://github.com/SourceLab081/files/raw/refs/heads/main/go-up
 . go-up src/hybris-18.1/droid-hal-fog.log
-. go-up /var/tmp/rpm-tmp.*
 df -h
