@@ -41,6 +41,11 @@ sudo needrestart -r a
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
+
+sudo apt-get update && sudo apt-get -y install libpam-pwquality kmod createrepo-c cpio bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libncurses5 libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev openjdk-8-jdk python-is-python3 -yq
+
+
+
 #ls -al /dev/
 #echo "list block"
 #ls -al /dev/block/
@@ -122,7 +127,7 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
 #df -h
 
-repo init --depth 1 -u https://github.com/mer-hybris/android.git  -b hybris-18.1 --git-lfs 
+repo init --depth 1 -u https://github.com/SailfishOS-msmnile/manifest.git -b hybris-18.1 --git-lfs 
 rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
 echo "repo sync"
 #view the log 
@@ -166,6 +171,10 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #rm -f vendor/qcom/opensource/power/power.xml
 #df -h
 curDir=`pwd`
+export SAILFISH_BUILD=1
+export VENDOR="xiaomi"
+export DEVICE="fog"
+export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
 echo "apply patch"
