@@ -33,7 +33,7 @@ export DEBIAN_FRONTEND=noninteractive
 #sudo apt-get update
 #sudo apt-get -y upgrade
 df -h
-sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
+#sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
 # ccache
 sudo needrestart -r a
 #export NINJA_ARGS="-j3"
@@ -41,9 +41,9 @@ sudo needrestart -r a
 curl https://storage.googleapis.com/git-repo-downloads/repo > ~/repo
 chmod a+x ~/repo
 sudo cp -a ~/repo /usr/local/bin/repo
-ls -al /dev/
-echo "list block"
-ls -al /dev/block/
+#ls -al /dev/
+#echo "list block"
+#ls -al /dev/block/
 #repo init -u https://github.com/CarbonROM/android.git --depth 1 -b cr-9.0 --git-lfs
 #git clone https://github.com/SourceLab081/local_manifests --depth 1 -b cr-9.0 .repo/local_manifests
 #repo sync -j$(nproc) --force-sync --no-tags
@@ -120,9 +120,9 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-VoltageOS .repo/local_manifests
 #repo init --depth 1 -u https://github.com/AtlantisOS/manifest -b 16 --git-lfs 
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
-df -h
+#df -h
 
-repo init --depth 1 -u https://github.com/mer-hybris/android.git  -b hybris-18.1 --git-lfs --no-clone-bundle
+repo init --depth 1 -u https://github.com/mer-hybris/android.git  -b hybris-18.1 --git-lfs 
 rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
 echo "repo sync"
 #view the log 
@@ -164,14 +164,14 @@ repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 #export TARGET_BOARD_PLATFORM=bengal
 # remove other power
 #rm -f vendor/qcom/opensource/power/power.xml
-df -h
+#df -h
 curDir=`pwd`
 export ANDROID_ROOT=`pwd`
 cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
 echo "apply patch"
 . hybris-patches/apply-patches.sh
 cd $ANDROID_ROOT
-. fog-patches/fog_patches.sh
+#. fog-patches/fog_patches.sh
 #cd vendor/qcom/opensource/power/ && wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/power.xml
 #cd $curDir
 #rm -f out/target/product/fog//vendor/etc/vintf/manifest/power.xml
