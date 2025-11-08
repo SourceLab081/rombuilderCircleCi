@@ -264,13 +264,14 @@ echo "build the code"
 #make libui_compat_layer -j$(nproc)
 #FILE="out/target/product/fog/system/lib/libui_compat_layer.so"
 
-if [ ! -f "$FILE" ]; then
-  touch $FILE
-  touch out/target/product/fog/system/lib64/libui_compat_layer.so
-fi
+#if [ ! -f "$FILE" ]; then
+#  touch $FILE
+#  touch out/target/product/fog/system/lib64/libui_compat_layer.so
+#fi
 
-make -j$(nproc --all) hybris-hal droidmedia  libsfplugin_ccodec libbiometry_fp_api
-brunch fog
+make -j$(nproc --all) hybris-hal droidmedia  
+#libsfplugin_ccodec libbiometry_fp_api
+#brunch fog
 #libbiometry_fp_api
 #TARGET_BUILD_GAPPS=true m yaap
 #m atlantis
