@@ -14,7 +14,7 @@ sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 df -h
 export dirHome=`pwd`
-sudo apt install -y git-core zip
+#sudo apt install -y git-core zip
 #wget https://github.com/SourceLab081/sfbootstrap/archive/refs/heads/master.zip
 #unzip master.zip
 #cd sfbootstrap-master
