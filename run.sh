@@ -28,14 +28,17 @@ set -x
 ls -al
 ./sfbootstrap.sh chroot setup
 df -h 
-ls -al src/hybris-18.1
+ls -al src/hybris-18.1/hybris
+ls -al src/hybris-18.1/out
 ./sfbootstrap.sh sync
  df -h 
- ls -al src/hybris-18.1
+ls -al src/hybris-18.1/hybris
+ls -al src/hybris-18.1/out
 ./sfbootstrap.sh build hal
 ./sfbootstrap.sh build packages
 set +x
-ls -al src/hybris-18.1
+ls -al src/hybris-18.1/hybris
+ls -al src/hybris-18.1/out
 df -h
 cat /var/tmp/rpm-tmp.*
 wget https://github.com/SourceLab081/files/raw/refs/heads/main/go-up
