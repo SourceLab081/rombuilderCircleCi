@@ -20,7 +20,7 @@ export dirHome=`pwd`
 #cd sfbootstrap-master
 git clone https://github.com/SourceLab081/sfbootstrap
 cd sfbootstrap
-echo "run command"
+echo "run the command"
 set -x
 ./sfbootstrap.sh init xiaomi-fog
 ./sfbootstrap.sh status
