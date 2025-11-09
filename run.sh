@@ -28,14 +28,14 @@ set -x
 ls -al
 ./sfbootstrap.sh chroot setup
 df -h 
-ls -al
+ls -al src
 ./sfbootstrap.sh sync
  df -h 
- ls -al
+ ls -al src
 ./sfbootstrap.sh build hal
 ./sfbootstrap.sh build packages
 set +x
-ls -al
+ls -al src
 df -h
 cat /var/tmp/rpm-tmp.*
 wget https://github.com/SourceLab081/files/raw/refs/heads/main/go-up
