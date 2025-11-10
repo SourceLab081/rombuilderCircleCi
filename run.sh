@@ -33,7 +33,7 @@ export DEBIAN_FRONTEND=noninteractive
 #sudo apt-get update
 #sudo apt-get -y upgrade
 df -h
-#sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
+sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
 # ccache
 sudo needrestart -r a
 #export NINJA_ARGS="-j3"
