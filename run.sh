@@ -36,8 +36,12 @@ df -h
 set -x
 echo $PATH
 sudo apt install -y libncurses5 
-ls -al /usr/lib64/libncurses.so*
-ls -al /usr/lib64/libtinfo.so*
+ls -al /lib/x86_64-linux-gnu/libncurses.so*
+ls -al /lib/x86_64-linux-gnu/libtinfo.so*
+sudo ln -s /lib/x86_64-linux-gnu/libncurses.so.5 /usr/lib64/libncurses.so.5
+sudo ln -s /lib/x86_64-linux-gnu/libtinfo.so.5 /usr/lib64/libtinfo.so.5
+sudo ldconfig
+
 find /usr/lib64/ -name "libncurses" -print 
 set +x
 #bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
@@ -279,7 +283,7 @@ breakfast fog #lunch aicp_fog-eng
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
-#brunch fog
+brunch fog
 #make libui_compat_layer -j$(nproc)
 #FILE="out/target/product/fog/system/lib/libui_compat_layer.so"
 
