@@ -227,6 +227,9 @@ wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-
 #printf "\nfog" >> horizon-maintainers/devices.list
 #rm -rf system/qcom/softap/sdk
 #export TARGET_BOARD_PLATFORM=bengal
+ls -al /usr/lib64/libncurses.so*
+ls -al /usr/lib64/libtinfo.so*
+echo $PATH
 source build/envsetup.sh
 #for komodo a15
 #rm -rf hardware/xiaomi/aidl/sensors
@@ -272,7 +275,7 @@ breakfast fog #lunch aicp_fog-eng
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
-brunch fog
+#brunch fog
 #make libui_compat_layer -j$(nproc)
 #FILE="out/target/product/fog/system/lib/libui_compat_layer.so"
 
