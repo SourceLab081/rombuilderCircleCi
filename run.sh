@@ -30,10 +30,17 @@ free -h >> info_server.txt
 uname -a >> info_server.txt
 export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
-#sudo apt-get update
+sudo apt-get update
 #sudo apt-get -y upgrade
 df -h
-sudo apt install -y libncurses5 bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
+set -x
+echo $PATH
+sudo apt install -y libncurses5 
+ls -al /usr/lib64/libncurses.so*
+ls -al /usr/lib64/libtinfo.so*
+find /usr/lib64/ -name "libncurses" -print 
+set +x
+#bc openjdk-11-jdk git-core gnupg flex bison gperf build-essential zip curl zlib1g-dev python3
 # ccache
 sudo needrestart -r a
 #export NINJA_ARGS="-j3"
@@ -227,9 +234,6 @@ wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-
 #printf "\nfog" >> horizon-maintainers/devices.list
 #rm -rf system/qcom/softap/sdk
 #export TARGET_BOARD_PLATFORM=bengal
-ls -al /usr/lib64/libncurses.so*
-ls -al /usr/lib64/libtinfo.so*
-echo $PATH
 source build/envsetup.sh
 #for komodo a15
 #rm -rf hardware/xiaomi/aidl/sensors
