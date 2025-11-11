@@ -6,7 +6,6 @@ free -h
 cat /proc/cpuinfo 
 cat /proc/meminfo 
 echo "core processor = $(nproc --all)" 
-
 export JAVA_TOOL_OPTIONS="-Xms4g -Xmx12g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
 git config --global user.email "tester@localhost"
 git config --global user.name "Tester"
