@@ -297,7 +297,7 @@ echo "build the code"
 #  touch out/target/product/fog/system/lib64/libui_compat_layer.so
 #fi
 
-make -j$(nproc --all) hybris-hal droidmedia  
+make -j6 hybris-hal droidmedia  
 #libsfplugin_ccodec libbiometry_fp_api
 #brunch fog
 #libbiometry_fp_api
