@@ -1,17 +1,21 @@
 version: 2.1
-   
+
+executors:
+  linux_builder:
+    docker:
+      - image: cimg/base:2022.09
+
 jobs:
   build:
-    machine:
-      image: cimg/base:2022.09
+    executor: linux_builder
     steps:
       - checkout
       - run:
-           name: Execute bash script
-           command: "bash run.sh"
-           
+           name: Execute shell
+           command: "bash buildrom.sh"
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
+
