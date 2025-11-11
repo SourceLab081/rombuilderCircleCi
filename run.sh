@@ -24,10 +24,10 @@ git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 #sudo mkswap /dev/zram0
 #sudo swapon /dev/zram0
 #swapon --show
-sudo fallocate -l 32G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
+#sudo fallocate -l 32G /swapfile
+#sudo chmod 600 /swapfile
+#sudo mkswap /swapfile
+#sudo swapon /swapfile
 echo "memory :"
 free -h
 free -h >> info_server.txt
