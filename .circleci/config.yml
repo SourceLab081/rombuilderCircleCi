@@ -3,7 +3,7 @@ version: 2.1
 executors:
   linux_builder:
     docker:
-      - image: cimg/base:2022.09
+      - image: cimg/base:2023.11-20.04
 
 jobs:
   build:
