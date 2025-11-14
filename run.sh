@@ -19,10 +19,10 @@ git config --global color.ui true
 git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 MB
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
-#sudo modprobe zram
-#echo 18G | sudo tee /sys/block/zram0/disksize
-#sudo mkswap /dev/zram0
-#sudo swapon /dev/zram0
+sudo modprobe zram
+echo 18G | sudo tee /sys/block/zram0/disksize
+sudo mkswap /dev/zram0
+sudo swapon /dev/zram0
 #swapon --show
 #sudo fallocate -l 32G /swapfile
 #sudo chmod 600 /swapfile
@@ -153,9 +153,9 @@ echo "repo sync"
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/239/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 #repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
-# repo sync --fetch-submodules -j$(nproc --all)
-wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
-. resync.sh
+repo sync --fetch-submodules -j$(nproc --all)
+#wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
+# . resync.sh
 #repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b r11x
 ##must be updated with clone list manifest.xml
 #repo sync --force-sync -j$(nproc --all)
