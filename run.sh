@@ -143,8 +143,11 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
 #df -h
 
-repo init --depth 1 -u https://github.com/SailfishOS-msmnile/manifest.git -b hybris-18.1 --git-lfs 
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
+#repo init --depth 1 -u https://github.com/SailfishOS-msmnile/manifest.git -b hybris-18.1 --git-lfs 
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
+repo init --depth 1 -u https://github.com/mer-hybris/android.git -b hybris-20.0 
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-20.0 .repo/local_manifests
+
 echo "repo sync"
 #view the log 
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/239/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
@@ -197,7 +200,8 @@ export ANDROID_ROOT=`pwd`
 echo "apply patch"
 . hybris-patches/apply-patches.sh --mb
 cd $ANDROID_ROOT
-wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-device.inc;mv droid-hal-device.inc rpm/dhd/
+#this is for 18.1 only
+#wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-device.inc;mv droid-hal-device.inc rpm/dhd/
 #. fog-patches/fog_patches.sh
 #cd $curDir
 #. fog-patches/fog_patches.sh
