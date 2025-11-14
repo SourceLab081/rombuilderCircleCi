@@ -153,8 +153,9 @@ echo "repo sync"
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/239/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
 #repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
-repo sync --fetch-submodules -j$(nproc --all)
-
+# repo sync --fetch-submodules -j$(nproc --all)
+wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
+. resync.sh
 #repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b r11x
 ##must be updated with clone list manifest.xml
 #repo sync --force-sync -j$(nproc --all)
