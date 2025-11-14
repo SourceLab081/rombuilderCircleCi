@@ -202,7 +202,7 @@ echo "apply patch"
 . hybris-patches/apply-patches.sh --mb
 cd $ANDROID_ROOT
 #this is for 18.1 only
-#wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-device.inc;mv droid-hal-device.inc rpm/dhd/
+wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-device.inc;mv droid-hal-device.inc rpm/dhd/
 #. fog-patches/fog_patches.sh
 #cd $curDir
 #. fog-patches/fog_patches.sh
