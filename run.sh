@@ -284,7 +284,6 @@ df -h
 #lunch komodo_ulysse-userdebug
 #lunch lineage_fog-userdebug
 #only check sepolicy
-#breakfast fog
 #echo "breakfast/lunch"
 #lunch atlantis_fog-bp2a-eng
 #lunch yaap_fog-user
