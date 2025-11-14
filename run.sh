@@ -12,7 +12,8 @@ if [ -d "$HOME/.local/bin" ] ; then
    mkdir -p ~/.local/bin
 fi
 
-export JAVA_TOOL_OPTIONS="-Xms4g -Xmx12g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
+#export JAVA_TOOL_OPTIONS="-Xms4g -Xmx12g -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
+export JAVA_TOOL_OPTIONS="-Xmx3112m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:+UseG1GC -Dfile.encoding=UTF-8"
 git config --global user.email "tester@localhost"
 git config --global user.name "Tester"
 git config --global color.ui true
@@ -20,7 +21,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 sudo modprobe zram
-echo 32G | sudo tee /sys/block/zram0/disksize
+echo 24G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 #swapon --show
