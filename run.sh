@@ -21,7 +21,7 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 sudo modprobe zram
-echo 24G | sudo tee /sys/block/zram0/disksize
+echo 25G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 #swapon --show
@@ -144,10 +144,10 @@ echo "core processor = $(nproc --all)"
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b 16-AtlantisOS .repo/local_manifests
 #df -h
 
-repo init --depth 1 -u https://github.com/SailfishOS-msmnile/manifest.git -b hybris-18.1 --git-lfs 
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
-#repo init --depth 1 -u https://github.com/SourceLab081/hybris_sfos.git -b hybris-20.0 
-#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-20.0 .repo/local_manifests
+#repo init --depth 1 -u https://github.com/SailfishOS-msmnile/manifest.git -b hybris-18.1 --git-lfs 
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
+repo init --depth 1 -u https://github.com/SourceLab081/hybris_sfos.git -b hybris-20.0 
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-20.0 .repo/local_manifests
 
 echo "repo sync"
 
@@ -203,7 +203,7 @@ echo "apply patch"
 . hybris-patches/apply-patches.sh --mb
 cd $ANDROID_ROOT
 #this is for 18.1 only
-wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-device.inc;mv droid-hal-device.inc rpm/dhd/
+#wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-device.inc;mv droid-hal-device.inc rpm/dhd/
 #. fog-patches/fog_patches.sh
 #cd $curDir
 #. fog-patches/fog_patches.sh
@@ -290,7 +290,7 @@ df -h
 #lunch yaap_fog-user
 #make installclean
 #lunch aosp_fog-bp2a-userdebug
-breakfast fog #lunch aicp_fog-eng
+breakfast fog userdebug #lunch aicp_fog-eng
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
@@ -303,7 +303,7 @@ echo "build the code"
 #  touch out/target/product/fog/system/lib64/libui_compat_layer.so
 #fi
 
-make -j6 hybris-hal droidmedia  
+make -j6 hybris-hal droidmedia  libbiometry_fp_api
 #libsfplugin_ccodec libbiometry_fp_api
 #brunch fog
 #libbiometry_fp_api
