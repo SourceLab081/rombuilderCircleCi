@@ -146,15 +146,17 @@ echo "core processor = $(nproc --all)"
 
 #repo init --depth 1 -u https://github.com/SailfishOS-msmnile/manifest.git -b hybris-18.1 --git-lfs 
 #rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-18.1 .repo/local_manifests
-repo init --depth 1 -u https://github.com/SourceLab081/hybris_sfos.git -b hybris-20.0 
-rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-20.0 .repo/local_manifests
+#repo init --depth 1 -u https://github.com/SourceLab081/hybris_sfos.git -b hybris-20.0 
+#rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b hybris-20.0 .repo/local_manifests
+repo init --depth 1 -u https://github.com/LineageOS/android.git -b lineage-20.0 --git-lfs
+rm -rf .repo/local_manifests && git clone https://github.com/SourceLab081/local_manifests --depth 1 -b lineage-20 .repo/local_manifests 
+echo "repo sync" 
 
-echo "repo sync"
 
 #https://circleci.com/api/v1.1/project/circleci/BvV3NeJ7vtWW9UHXraZR4R/FaKTY4NeSUknzeMwS3SSmP/239/output/102/0?file=true&allocation-id=67d2cb13d0604c5a377e6ba4-0-build%2FABCDEFGH
 #change for the next log from 193 to 194 , 196 now
-#repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
-repo sync --fetch-submodules -j$(nproc --all)
+repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags 
+#repo sync --fetch-submodules -j$(nproc --all)
 #wget https://raw.githubusercontent.com/accupara/docker-images/master/aosp/common/resync.sh
 # . resync.sh
 #repo init -u https://github.com/DirtyUnicorns/android_manifest.git -b r11x
@@ -199,9 +201,9 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 #cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
-echo "apply patch"
-. hybris-patches/apply-patches.sh --mb
-cd $ANDROID_ROOT
+#echo "apply patch"
+# . hybris-patches/apply-patches.sh --mb
+# cd $ANDROID_ROOT
 #this is for 18.1 only
 #wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/droid-hal-device.inc;mv droid-hal-device.inc rpm/dhd/
 #. fog-patches/fog_patches.sh
@@ -217,8 +219,8 @@ cd $ANDROID_ROOT
 #fi
 #. script_sch2.sh
 
-#curDir=`pwd`
-#cd kernel/xiaomi/fog && rm -rf KernelSU-Next && curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash - && cd $curDir
+curDir=`pwd`
+cd kernel/xiaomi/fog && rm -rf KernelSU-Next && curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/next/kernel/setup.sh" | bash - && cd $curDir
 
 #fldr="device/qcom/sepolicy_vndr/legacy-um/generic/vendor/common/"
 #wget https://github.com/SourceLab081/uploadz/releases/download/v0.0.2/file.te && mv file.te $fldr
@@ -290,11 +292,11 @@ df -h
 #lunch yaap_fog-user
 #make installclean
 #lunch aosp_fog-bp2a-userdebug
-breakfast fog userdebug #lunch aicp_fog-eng
+#breakfast fog userdebug #lunch aicp_fog-eng
 #echo "Breakfast + Build the code"
 #brunch fog userdebug
 echo "build the code"
-#brunch fog
+brunch fog eng
 #make libui_compat_layer -j$(nproc)
 #FILE="out/target/product/fog/system/lib/libui_compat_layer.so"
 
@@ -303,7 +305,7 @@ echo "build the code"
 #  touch out/target/product/fog/system/lib64/libui_compat_layer.so
 #fi
 
-make -j6 hybris-hal droidmedia  libbiometry_fp_api
+#make -j6 hybris-hal droidmedia  libbiometry_fp_api
 #libsfplugin_ccodec libbiometry_fp_api
 #brunch fog
 #libbiometry_fp_api
