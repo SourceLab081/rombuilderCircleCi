@@ -1,4 +1,4 @@
-echo "compile kernel"
+echo "compile kernel start"
 
 git config --global user.email "tester@localhost"
 git config --global user.name "Tester"
@@ -15,3 +15,5 @@ sudo swapon /dev/zram0
 # curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
 wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
 . build_kernel.sh
+
+echo "end"
