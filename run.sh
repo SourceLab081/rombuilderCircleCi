@@ -12,8 +12,8 @@ echo 30G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 
-# curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
-wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
-. build_kernel.sh
+curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
+# wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
+#. build_kernel.sh
 
 echo "end"
