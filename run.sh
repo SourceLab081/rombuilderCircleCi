@@ -15,7 +15,11 @@ sudo swapon /dev/zram0
 # curl --help
 #curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
  wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
- export KSU_NEXT="yes"
+ export kernel_src="--depth=1 -b fog-new https://github.com/SourceLab081/greenforce"
+ export config="vendor/fog-perf_defconfig"
+ export variant="greenforce"
+ export KSU_NEXT="no"
+ 
 . build_kernel.sh
 
 echo "end"
