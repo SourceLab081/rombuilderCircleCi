@@ -12,7 +12,7 @@ echo 30G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 
-#curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
+ # curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
  wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
  export kernel_src="--depth=1 -b fog-new https://github.com/SourceLab081/greenforce"
  export config="vendor/fog-perf_defconfig"
