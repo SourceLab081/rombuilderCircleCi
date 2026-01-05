@@ -18,8 +18,8 @@ sudo swapon /dev/zram0
  export kernel_src="--depth=1 -b sfos-fog https://github.com/SourceLab081/hybris_kernel"
  export config="vendor/fog-hybris_defconfig"
  export variant="ubuntu"
- export KSU_NEXT="no"
- 
+ export eva="yes" KSU_NEXT="no"
+  
 . build_kernel.sh
 
 echo "end"
