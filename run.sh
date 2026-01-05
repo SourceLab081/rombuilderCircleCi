@@ -17,7 +17,7 @@ sudo apt update && sudo apt install -y libc++-dev build-essential git bc kmod cp
  ## curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
  wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
  #export kernel_src="--depth=1 -b fog-new https://github.com/SourceLab081/greenforce"
- export kernel_src="--depth=1 -b sfos-fog https://github.com/SourceLab081/hybris_kernel"
+ export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/hybris_kernel"
  export config="vendor/fog-hybris_defconfig"
  export variant="ubuntu"
  export eva="yes" KSU_NEXT="no"
