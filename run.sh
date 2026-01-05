@@ -12,7 +12,7 @@ echo 30G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 
-sudo apt update && sudo apt install -y libc++-dev build-essential git bc kmod cpio flex cpio libncurses5-dev bison libssl-dev libelf-dev curl zip unzip clang wget
+sudo apt update && sudo apt install -y libc++-dev build-essential git bc kmod cpio flex cpio libncurses5-dev bison libssl-dev libelf-dev curl zip unzip 
 
  ## curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
  wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh

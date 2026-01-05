@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   build:
     machine:
-      image: ubuntu-2004:2024.11.1
+      image: ubuntu-2204:2024.04.3
       docker_layer_caching: true
     resource_class: large
     steps:
