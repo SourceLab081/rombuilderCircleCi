@@ -19,8 +19,8 @@ sudo apt install -y libc++-dev build-essential git bc kmod cpio flex cpio libncu
  wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
  #export kernel_src="--depth=1 -b fog-new https://github.com/SourceLab081/greenforce"
  export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/hybris_kernel"
- export config="vendor/fog-hybris_defconfig"
- export variant="ubuntu"
+ export config="vendor/fog-hSfos_defconfig"
+ export variant="sfos"
  export eva="yes" KSU_NEXT="no"
   
 . build_kernel.sh
