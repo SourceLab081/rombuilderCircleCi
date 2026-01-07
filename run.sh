@@ -23,4 +23,5 @@ wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
   
 . build_kernel.sh
 
+
  echo "end"
