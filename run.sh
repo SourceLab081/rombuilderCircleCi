@@ -16,12 +16,12 @@ sudo swapon /dev/zram0
 #wget https://github.com/SourceLab081/files/raw/refs/heads/main/uploadToGithub.sh
 #. uploadToGithub.sh AndroidOne-fog-OTA-20260103-1217.zip
 sudo apt install -y libc++-dev build-essential git bc kmod cpio flex cpio libncurses5-dev bison libssl-dev libelf-dev curl zip unzip 
- #curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
+#curl https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh | bash
 wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
  #export kernel_src="--depth=1 -b fog-new https://github.com/SourceLab081/greenforce"
  #export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/hybris_kernel"
  export kernel_src="--depth=1 -b fog https://github.com/online0code/halium_kernel"
- export config="vendor/fog-hybris_defconfig"
+  export config="vendor/fog-hybris_defconfig"
  export variant="ubt"
  export protonNLos="yes" KSU_NEXT="no" fromFile="no"
  
