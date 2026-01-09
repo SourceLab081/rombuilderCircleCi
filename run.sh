@@ -9,7 +9,7 @@ echo 30G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 
-#wget -O AndroidOne-fog-OTA-20260103-1217.zip https://phoenixnap.dl.sourceforge.net/project/dv-work/rom/AndroidOne-fog-OTA-20260103-1217.zip?viasf=1
+# wget -O AndroidOne-fog-OTA-20260103-1217.zip https://phoenixnap.dl.sourceforge.net/project/dv-work/rom/AndroidOne-fog-OTA-20260103-1217.zip?viasf=1
 #wget https://github.com/SourceLab081/files/raw/refs/heads/main/uploadToGithub.sh
 #. uploadToGithub.sh AndroidOne-fog-OTA-20260103-1217.zip
 sudo apt install -y libc++-dev build-essential git bc kmod cpio flex cpio libncurses5-dev bison libssl-dev libelf-dev curl zip unzip 
