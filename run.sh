@@ -20,9 +20,9 @@ wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
 #export kernel_src="--depth=1 -b fog https://github.com/online0code/halium_kernel"
 export kernel_src="--depth=1 -b vauxite-fog https://github.com/SourceLab081/uvite" 
 # export config="vendor/fog-hybris_defconfig"
- export config="vendor/fog-perf_defconfig"
- export variant="vauxite"
- export proton="yes" KSU_NEXT="yes" fromFile="no"
+export config="vendor/fog-perf_defconfig"
+export variant="vauxite"
+export proton="yes" KSU_NEXT="yes" fromFile="no"
  
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
