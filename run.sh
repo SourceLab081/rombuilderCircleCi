@@ -23,7 +23,7 @@ export kernel_src="--depth=1 -b main-a16-sm8250-base https://github.com/SourceLa
 export config="vendor/fog-perf_defconfig"
 export variant="BPF"
 export proton="yes" KSU_NEXT="no" fromFile="no"
- # circleci 370
+ # circleci 371
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
