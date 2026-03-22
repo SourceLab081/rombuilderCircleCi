@@ -18,12 +18,13 @@ wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
 #export kernel_src="--depth=1 -b fog-new https://github.com/SourceLab081/greenforce"
 #export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/hybris_kernel"
 #export kernel_src="--depth=1 -b fog https://github.com/online0code/halium_kernel"
-export kernel_src="--depth=1 -b main-a16-sm8250-base https://github.com/SourceLab081/sm6225-main" 
+#main-a16-sm8250-base
+export kernel_src="--depth=1 -b main-a16-sm8250-base-ksun-susfs https://github.com/SourceLab081/sm6225-main" 
 # export config="vendor/fog-hybris_defconfig"
 export config="vendor/fog-perf_defconfig"
 export variant="BPF"
-export proton="yes" KSU_NEXT="no" fromFile="no"
- # circleci 372
+export proton="yes" KSUN_SUSFS="yes" fromFile="no"
+ # circleci 373
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
