@@ -24,7 +24,7 @@ export kernel_src="--depth=1 -b main-a16-sm8250-base-ksun-susfs https://github.c
 export config="vendor/fog-perf_defconfig"
 export variant="BPF"
 export proton="yes" KSUN_SUSFS="yes" fromFile="no"
- # circleci 373
+ # circleci 374
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
