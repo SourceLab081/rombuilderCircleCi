@@ -24,9 +24,9 @@ wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
 export kernel_src="--depth=1 -b fog-new https://github.com/SourceLab081/greenforce" 
 # export config="vendor/fog-hybris_defconfig"
 export config="vendor/fog-perf_defconfig"
-export variant="BPF"
+export variant="GF_BPF"
 export proton="yes" KSUN_SUSFS="yes" fromFile="no"
- # circleci 380
+ # circleci 381
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
