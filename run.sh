@@ -27,7 +27,7 @@ export kernel_src="--depth=1 -b test-fog https://github.com/SourceLab081/greenfo
 export config="vendor/fog-hybris_defconfig"
 export variant="sfos"
 export eva="no" proton="yes" KSUN_SUSFS="no" fromFile="no"
- # circleci 437
+ # circleci 438
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
