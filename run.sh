@@ -27,7 +27,7 @@ export kernel_src="--depth=1 -b fog-new2 https://github.com/SourceLab081/greenfo
 export config="vendor/fog-perf_defconfig"
 export variant="GreenForce"
 export eva="no" proton="yes" KSUN_SUSFS="yes" fromFile="no"
- # circleci 439
+ # circleci 440
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
