@@ -27,8 +27,8 @@ export kernel_src="--depth=1 -b bpf_gf-fog https://github.com/SourceLab081/green
 #export config="vendor/fog-hybris_defconfig-sfos"
 export config="vendor/fog-halium_defconfig"
 export variant="HaliumGf"
-export eva="no" proton="yes" KSUN_SUSFS="no" fromFile="no"
- # circleci 448
+export eva="no" proton="yes" KSUN_SUSFS="no" fromFile="no" halium="yes"
+ # circleci 449
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
