@@ -31,7 +31,7 @@ export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/halium_kerne
 export config="vendor/fog-halium_defconfig"
 export variant="Ubtouch"
 export eva="yes" proton="no" KSUN_SUSFS="no" fromFile="no" halium="no"
- # circleci 457
+ # circleci 458
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
