@@ -23,7 +23,7 @@ wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
 #main-a16-sm8250-base-ksun-susfs 
 # bpf_gf-fog/arch/arm64/configs/vendor/fog-halium_defconfig
 export config="vendor/fog-perf_defconfig"
-export variant="GF-KSUNSUSFS"
+export variant="Gf-KSUNSUSFS"
 export eva="no" proton="yes" KSUN_SUSFS="yes" PATCH_SUSFS="no" fromFile="no" halium="no"
 
 if [ "$KSUN_SUSFS" = "yes" ]; then
