@@ -29,7 +29,7 @@ export eva="no" proton="yes" KSUN_SUSFS="no" PATCH_SUSFS="no" fromFile="no" hali
 if [ "$KSUN_SUSFS" = "yes" ]; then
      export kernel_src="--depth 1 --recurse-submodules -b fog_new https://github.com/SourceLab081/greenforce" 
 else
-     export kernel_src="--depth 1 -b fog-new2 https://github.com/SourceLab081/sm6225-main" 
+     export kernel_src="--depth 1 -b fog  https://github.com/SourceLab081/greenforce" 
 fi
 
 #export kernel_src="--depth=1 -b fog-new2 https://github.com/SourceLab081/sm6225-main"
@@ -37,7 +37,7 @@ fi
 #export config="vendor/fog-hybris_defconfig-sfos"
 #export config="vendor/fog-droidian_defconfig"
 #export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/halium_kernel"
- # circleci 476
+ # circleci 477
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
