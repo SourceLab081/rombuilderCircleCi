@@ -25,19 +25,21 @@ wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
 export config="vendor/fog-hybris_defconfig"
 export variant="Sfos"
 export eva="no" proton="yes" KSUN_SUSFS="no" PATCH_SUSFS="no" fromFile="no" halium="no"
+export branch="fog" repo="SourceLab081/greenforce"
 
 if [ "$KSUN_SUSFS" = "yes" ]; then
-     export kernel_src="--depth 1 --recurse-submodules -b fog_new https://github.com/SourceLab081/greenforce" 
+     export kernel_src=" --recurse-submodules" 
 else
-     export kernel_src="--depth 1 -b bpf_gf-fog https://github.com/SourceLab081/greenforce" 
+     export kernel_src="" 
 fi
 
+export kernel_src+="--depth 1 -b $branch https://github.com/$repo"
 #export kernel_src="--depth=1 -b fog-new2 https://github.com/SourceLab081/sm6225-main"
 # bpf_gf-fog https://github.com/SourceLab081/greenforce 
 #export config="vendor/fog-hybris_defconfig-sfos"
 #export config="vendor/fog-droidian_defconfig"
 #export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/halium_kernel"
- # circleci 497
+ # circleci 498
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
