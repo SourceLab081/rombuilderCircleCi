@@ -23,7 +23,7 @@ wget https://github.com/SourceLab081/files/raw/refs/heads/main/build_kernel.sh
 #main-a16-sm8250-base-ksun-susfs 
 # bpf_gf-fog/arch/arm64/configs/vendor/fog-halium_defconfig
 export config="vendor/fog-perf_defconfig"
-export variant="ksunsusfs-gf"
+export variant="gf"
 export eva="no" proton="yes" KSUN_SUSFS="no" PATCH_SUSFS="no" fromFile="no" halium="no"
 export branch="fog-perf" repo="SourceLab081/greenforce"
 
@@ -39,7 +39,7 @@ export kernel_src+="--depth 1 -b $branch https://github.com/$repo"
 #export config="vendor/fog-hybris_defconfig-sfos"
 #export config="vendor/fog-droidian_defconfig"
 #export kernel_src="--depth=1 -b fog https://github.com/SourceLab081/halium_kernel"
- # circleci 507
+ # circleci 508
  #wget https://github.com/SourceLab081/uploadz/releases/download/v0.2.2/hybris_kernel_origFog-src.zip
  #export file_src="hybris_kernel_origFog-src.zip"
 
