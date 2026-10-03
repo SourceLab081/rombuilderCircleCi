@@ -22,7 +22,7 @@ git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan min
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 df -h
 sudo modprobe zram
-echo 20G | sudo tee /sys/block/zram0/disksize
+echo 50G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 df -h
@@ -203,9 +203,14 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
- # circleci 511
+# circleci 512
 
-curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
+#curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
+repo init --depth 1 -u https://github.com/Project-PenguinOS/manifest -b celerity
+repo sync --current-branch --no-tags -j$(nproc --all)
+# test for marble
+/rom-build.sh marble
+
 #cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
 #echo "apply patch"
 # . hybris-patches/apply-patches.sh --mb
