@@ -20,8 +20,9 @@ git config --global color.ui true
 git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 MB
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
+df -h
 sudo modprobe zram
-echo 50G | sudo tee /sys/block/zram0/disksize
+echo 20G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
 df -h
@@ -202,7 +203,7 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
- # circleci 510
+ # circleci 511
 
 curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
 #cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
