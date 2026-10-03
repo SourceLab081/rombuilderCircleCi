@@ -202,7 +202,7 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
- # circleci 509
+ # circleci 510
 
 curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
 #cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
@@ -321,6 +321,7 @@ curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh
 #mka clover -j4 
 #mmma system/sepolicy -j2
 #m nothing
+df -h
 date
 end=$(date +%s.%N)    
 runtime=$(python -c "print(${end} - ${start})")
