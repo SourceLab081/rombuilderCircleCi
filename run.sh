@@ -203,15 +203,16 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 513
+# circleci 514
 
 #curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
-repo init --depth 1 -u https://github.com/Project-PenguinOS/manifest -b celerity
-repo sync --current-branch --no-tags -j$(nproc --all)
-# test for marble
-rm -rf platform/packages/modules
-rm -rf platform/external/chromium-webview
-./rom-build.sh marble
+curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=PenguinOS2 bash
+#repo init --depth 1 -u https://github.com/Project-PenguinOS/manifest -b celerity
+#repo sync --current-branch --no-tags -j$(nproc --all)
+## test for marble
+#rm -rf platform/packages/modules
+#rm -rf platform/external/chromium-webview
+#./rom-build.sh marble
 
 #cd external/chromium-webview;rm Android.mk;ln -s patches/os_pickup.mk Android.mk;cd $curDir;
 #echo "apply patch"
