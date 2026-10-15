@@ -203,7 +203,7 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 516
+# circleci 517
 
 #curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
 curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=PenguinOS2 bash
