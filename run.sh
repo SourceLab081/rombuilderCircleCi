@@ -25,6 +25,11 @@ sudo modprobe zram
 echo 50G | sudo tee /sys/block/zram0/disksize
 sudo mkswap /dev/zram0
 sudo swapon /dev/zram0
+
+sudo modprobe brd rd_nr=1 rd_size=63418576
+sudo mkfs.ext4 /dev/ram0
+sudo mount /dev/ram0 /mnt/ramdisk
+
 df -h
 #swapon --show
 #sudo fallocate -l 32G /swapfile
@@ -203,7 +208,7 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 519
+# circleci 521
 
 #curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
 curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=PenguinOS bash
