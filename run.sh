@@ -32,10 +32,10 @@ sudo mount /dev/ram0 /mnt/ramdisk
 
 df -h
 #swapon --show
-#sudo fallocate -l 32G /swapfile
-#sudo chmod 600 /swapfile
-#sudo mkswap /swapfile
-#sudo swapon /swapfile
+sudo fallocate -l 32G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
 echo "memory :"
 free -h
 free -h >> info_server.txt
@@ -208,7 +208,7 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 521
+# circleci 522
 
 #curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
 curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=PenguinOS bash
