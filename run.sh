@@ -21,34 +21,38 @@ git config --global http.postBuffer 524288000  # Tingkatkan buffer menjadi 500 M
 git config --global http.lowSpeedLimit 0       # Nonaktifkan batas kecepatan minimum
 git config --global http.lowSpeedTime 999999   # Tingkatkan waktu low speed
 df -h
-sudo modprobe zram
-echo 50G | sudo tee /sys/block/zram0/disksize
-sudo mkswap /dev/zram0
-sudo swapon /dev/zram0
+#sudo modprobe zram
+#echo 50G | sudo tee /sys/block/zram0/disksize
+#sudo mkswap /dev/zram0
+#sudo swapon /dev/zram0
 
-sudo modprobe brd rd_nr=1 rd_size=63418576
-sudo mkfs.ext4 /dev/ram0
-sudo mount /dev/ram0 /mnt/ramdisk
+#sudo modprobe brd rd_nr=1 rd_size=63418576
+#sudo mkfs.ext4 /dev/ram0
+#sudo mount /dev/ram0 /mnt/ramdisk
 
 df -h
 #swapon --show
-sudo fallocate -l 32G /swapfile
-sudo chmod 600 /swapfile
-sudo mkswap /swapfile
-sudo swapon /swapfile
+
+sudo touch /var/lib/docker/test_write
+sudo ls /var/lib/docker
+
+sudo fallocate -l 32G /var/lib/docker/swapfile
+sudo chmod 600 /var/lib/docker/swapfile
+sudo mkswap /var/lib/docker/swapfile
+sudo swapon /var/lib/docker/swapfile
 echo "memory :"
 free -h
 free -h >> info_server.txt
 uname -a >> info_server.txt
 export DEBIAN_FRONTEND=noninteractive
 #echo "restart no" | sudo tee /etc/needrestart/needrestart.conf
-sudo apt-get update
+#sudo apt-get update
 #sudo apt-get -y upgrade
 df -h
 set -x
 echo $PATH
 sudo apt install -y libpam-pwquality cpio bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5-dev libncurses5 libsdl1.2-dev libssl-dev libwxgtk3.0-gtk3-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev openjdk-8-jdk python-is-python3 -yq
-
+df -h
 #ls -al /lib/x86_64-linux-gnu/libncurses.so*
 #ls -al /lib/x86_64-linux-gnu/libtinfo.so*
 #sudo ln -s /lib/x86_64-linux-gnu/libncurses.so.5 /usr/lib64/libncurses.so.5
@@ -208,10 +212,10 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 528
+# circleci 530
 
-#curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
-curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom3.sh | update=yes ROM=PenguinOS circleci=yes bash
+##curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
+#curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom3.sh | update=yes ROM=PenguinOS circleci=yes bash
 #repo init --depth 1 -u https://github.com/Project-PenguinOS/manifest -b celerity
 #repo sync --current-branch --no-tags -j$(nproc --all)
 ## test for marble
