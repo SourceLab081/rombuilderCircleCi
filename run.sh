@@ -212,10 +212,10 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 530
+# circleci 532
 
 ##curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
-#curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom3.sh | update=yes ROM=PenguinOS circleci=yes bash
+curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom3.sh | update=yes ROM=PenguinOS circleci=yes bash
 #repo init --depth 1 -u https://github.com/Project-PenguinOS/manifest -b celerity
 #repo sync --current-branch --no-tags -j$(nproc --all)
 ## test for marble
