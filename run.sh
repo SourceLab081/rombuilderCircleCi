@@ -212,12 +212,12 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 533
+# circleci 534
 
 ##curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
 #curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom3.sh | update=yes ROM=PenguinOS circleci=yes bash
 wget -O rom3.sh https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom3.sh 
-. rom3 yes PenguinOS yes
+. rom3.sh yes PenguinOS yes
 
 #repo init --depth 1 -u https://github.com/Project-PenguinOS/manifest -b celerity
 #repo sync --current-branch --no-tags -j$(nproc --all)
