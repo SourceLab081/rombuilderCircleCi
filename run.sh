@@ -35,11 +35,11 @@ df -h
 
 sudo touch /var/lib/docker/test_write
 sudo ls /var/lib/docker
-
-sudo fallocate -l 32G /var/lib/docker/swapfile
-sudo chmod 600 /var/lib/docker/swapfile
-sudo mkswap /var/lib/docker/swapfile
-sudo swapon /var/lib/docker/swapfile
+dir="/var/lib/docker"
+sudo fallocate -l 32G swapfile
+sudo chmod 600 swapfile
+sudo mkswap swapfile
+sudo swapon swapfile
 echo "memory :"
 free -h
 free -h >> info_server.txt
@@ -212,7 +212,7 @@ export DEVICE="fog"
 export PORT_ARCH="aarch64"
 export ANDROID_ROOT=`pwd`
 
-# circleci 543
+# circleci 544
 
 ##curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom.sh | update=yes ROM=HertzifyOS bash
 #curl https://raw.githubusercontent.com/SourceLab081/files/refs/heads/main/rom3.sh | update=yes ROM=PenguinOS circleci=yes bash
